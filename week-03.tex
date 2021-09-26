@@ -27,7 +27,7 @@ legalább egyszer differenciálható vektormező, ekkor \dots
         $\rot \; \rvec{v} = \rvec{0}$
 
   \item $\rvec{v}$ vektorpotenciálos $\Leftrightarrow$
-        $\div \; \rvec{v} = \rvec{0}$
+        $\div \; \rvec{v} = 0$
 \end{itemize}
 
 
@@ -91,10 +91,6 @@ $\lambda; \mu \in \mathbb{R}$ skalárok.
            & =\grad \, \div \, \rvec{v}
           - \Delta \rvec{v}
           \\
-          \div \left( \rvec{u} \cross \rvec{v} \right)
-           & = \; \scalar{\rvec{v}}{\rot \, \rvec{u}}
-          - \scalar{\rvec{u}}{\rot \, \rvec{v}}
-          \\
           \rot \left( \rvec{u} \cross \rvec{v} \right)
            & = \rvec{u} \, \div \, \rvec{v}
           - \rvec{v} \, \div \, \rvec{u}
@@ -102,7 +98,7 @@ $\lambda; \mu \in \mathbb{R}$ skalárok.
           - (\Diff \rvec{v}) \rvec{u}
           \\
           \div \left( \rvec{u} \cross \rvec{v} \right)
-           & = \; \scalar{\rvec{v}}{\rot \, \rvec{v}}
+           & = \; \scalar{\rvec{v}}{\rot \, \rvec{u}}
           - \scalar{\rvec{u}}{\rot \, \rvec{v}}
           \\
           \grad \left( \scalar{\rvec{u}}{\rvec{v}} \right)
@@ -134,7 +130,7 @@ reguláris görbének hívjuk.
 
 A $\rvec{v} : I \rightarrow \mathbb{R}$,
 $t \mapsto v(t) := \norma{\dot{\rvec{r}}(t)}$
-függvényt pályasebességnek hívjuk
+függvényt pályasebességnek hívjuk.
 
 
 
@@ -239,7 +235,7 @@ He létezik a $\displaystyle \sum_ i \norma{
 
       \draw [ultra thick, ->, cyan!40!gray]
       (1,0.5) -- (3.5,3)
-      node [midway, below right] {$\Delta\rvec{r}(t_{i})$};
+      node [midway, below right] {$\Delta\rvec{r}_i$};
 
       \draw [ultra thick, ->, yellow!40!gray]
       (2, 2) -- (1,3)
