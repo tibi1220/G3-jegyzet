@@ -1,0 +1,381 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\megj{1}{.5}{$\varphi^{*}$ mátrix reprezentációja}
+
+Reprezentálja $\varphi$-t $\rmat{A}$,
+$\varphi^{*}$-ot pedig $\rmat{A}^{*}$:
+\begin{align*}
+  \scalar{\varphi(\rvec{v})}{\rvec{w}}
+  \; & = \;
+  \scalar{\rvec{v}}{\varphi^{*}(\rvec{w})}
+  \\[
+  2mm
+  ]
+  \rmat{A}\rvec{v} \cdot \rvec{w}
+     & =
+  \rvec{v} \cdot \rmat{A}^{*} \rvec{w}
+  \\[
+  2mm
+  ]
+  \begin{bmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+  \end{bmatrix}
+  \begin{bmatrix}
+    v_1 \\
+    v_2
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    w_1 \\
+    w_2
+  \end{bmatrix}
+     & =
+  \begin{bmatrix}
+    v_1 \\
+    v_2
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    a_{11}^{*} & a_{12}^{*} \\
+    a_{21}^{*} & a_{22}^{*}
+  \end{bmatrix}
+  \begin{bmatrix}
+    w_1 \\
+    w_2
+  \end{bmatrix}
+  \\[
+  2mm
+  ]
+  \begin{bmatrix}
+    a_{11} v_1 + a_{12} v_2 \\
+    a_{21} v_1 + a_{22} v_2
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    w_1 \\
+    w_2
+  \end{bmatrix}
+     & =
+  \begin{bmatrix}
+    v_1 \\
+    v_2
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    a_{11}^{*} w_1 + a_{12}^{*} w_2 \\
+    a_{21}^{*} w_1 + a_{22}^{*} w_2
+  \end{bmatrix}
+\end{align*}
+\begin{alignat*}{4}
+  \scalar{\rmat{A}\rvec{v}}{\rvec{w}}
+   & = \circled{$a_{11}$}{green!40!gray} v_1 w_1
+   & + \circled{$a_{12}$}{red!40!gray} v_2 w_1
+   & + \circled{$a_{21}$}{cyan!40!gray} v_1 w_2
+   & + \circled{$a_{22}$}{yellow!40!gray} v_2 w_2
+  \\
+  \scalar{\rmat{A}^{*}\rvec{w}}{\rvec{v}}
+   & = \circled{$a_{11}^{*}$}{green!40!gray} w_1 v_1
+   & + \circled{$a_{12}^{*}$}{cyan!40!gray} w_2 v_2
+   & + \circled{$a_{21}^{*}$}{red!40!gray} w_1 v_2
+   & + \circled{$a_{22}^{*}$}{yellow!40!gray} w_2 v_2
+\end{alignat*}
+
+Megállapthatjuk, hogy $\rmat{A}^{*} = \rmat{A}^\transpose$.
+
+
+\allit{1}{.33} Szimmetrikus leképezés adjungáltja önmaga.
+
+
+\allit{1}{.33}{Leképezés felbontása}
+
+$! \; \varphi \in \End(V)$, ekkor $!\exists$ olyan
+$\mathcal{A}$ és $\mathcal{S}$ antiszimmetrikus és szimmetrikus
+leképezés, ahol $\varphi = \mathcal{A} + \mathcal{S}$, melyek
+az endomorfizmusok vektorterét 2 diszjunkt halmazra bontják:
+\begin{equation*}
+  \mathcal{A} := \frac{\varphi - \varphi^{*}}{2}
+  \hspace{5mm} \text{és} \hspace{5mm}
+  \mathcal{S} := \frac{\varphi + \varphi^{*}}{2}
+\end{equation*}
+
+
+\biz{0}{.33}{unicitás}
+
+Tegyük fel hogy $\varphi$ előáll
+$\mathcal{A}_1 + \mathcal{S}_1$ és
+$\mathcal{A}_2 + \mathcal{S}_2$
+összegeként is. Vonjuk ki egymásból
+a két egyenletet:
+\begin{align*}
+  \mathcal{O}
+  = \varphi - \varphi
+   & = \overbrace{ \left(
+    \mathcal{A}_1 - \mathcal{A}_2
+    \right)}^{\displaystyle\overline{\mathcal{A}}}
+  + \overbrace{ \left(
+    \mathcal{S}_1 - \mathcal{S}_2
+    \right)}^{\displaystyle\mathcal{\overline{S}}}
+  \\[
+  2mm
+  ]
+  \mathcal{O}
+   & = \mathcal{\overline{A}} + \mathcal{\overline{S}}
+  \hspace{25mm}
+  /\ (\;\;\;)^{*}
+  \hspace{5mm}
+  (\text{adjugált leképezés})
+  \\[
+  2mm
+  ]
+  \mathcal{O}^{*}
+  = \mathcal{O}
+   & = \mathcal{\overline{A}^{*}} + \mathcal{\overline{S}^{*}}
+  = -\mathcal{\overline{A}} + \mathcal{\overline{S}}
+\end{align*}
+
+Az előző két egyenletből következik, hogy
+$\mathcal{O = A = S}$. Feltevésünk hamisnak bizonyult.
+
+
+\ism{1}{.33}{Reguláris mátrix felbontása}
+
+Egy $\rmat{M} \in \mathcal{M}_{n \cross n}$
+mátrix felbontható szimmetrikus és
+ferdeszimmetrikus (antiszimmetrikus) részekre:
+\begin{equation*}
+  \rmat{S} = \frac{\rmat{M} + \rmat{M}^\transpose}{2}
+  \hspace{20mm}
+  \rmat{A} = \frac{\rmat{M} - \rmat{M}^\transpose}{2}
+\end{equation*}
+
+Ha mátrixunk $3 \cross 3$-as:
+\begin{equation*}
+  \rmat{M}
+  = \rmat{S} + \rmat{A}
+  = \begin{bmatrix}
+    a & d & e \\
+    d & b & f \\
+    e & f & c
+  \end{bmatrix}
+  + \begin{bmatrix}
+    0  & x  & y \\
+    -x & 0  & z \\
+    -y & -z & 0
+  \end{bmatrix}
+\end{equation*}
+
+\begin{itemize}
+  \item Általános esetben
+        egy ferdeszimmetrikus
+        mátrix dimenziója:
+        $\dfrac{n \cdot (n - 1)}{2}$
+
+  \item Szimmetrikus mátrix dimenziója:
+        $\dfrac{n \cdot (n + 1)}{2}$
+\end{itemize}
+
+
+\megj{0}{.33}
+
+Az antiszimmetrikus leképezések és a
+$V$-beli vektorok között tudunk egy-egyértelmű
+hozzárendelést találni:
+\begin{equation*}
+  \rmat{A} \in \mathcal{A}
+  \hspace{2.5mm} \leftrightarrow \hspace{2.5mm}
+  \rvec{v} \in V
+\end{equation*}
+
+Keressünk egy olyan $\rvec{v}$ vektort,
+melyre teljesül az alábbi egyenlet:
+\begin{align*}
+  \rmat{A}\rvec{w}
+   & = \rvec{v} \cross \rvec{w}
+  \\[
+  2mm
+  ]
+  \begin{bmatrix}
+    0       & a_{12}  & a_{13} \\
+    -a_{12} & 0       & a_{23} \\
+    -a_{13} & -a_{23} & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    w_1 \\
+    w_2 \\
+    w_3
+  \end{bmatrix}
+   & =
+  \begin{bmatrix}
+    v_1 \\
+    v_2 \\
+    v_3
+  \end{bmatrix}
+  \cross
+  \begin{bmatrix}
+    w_1 \\
+    w_2 \\
+    w_3
+  \end{bmatrix}
+  \\[
+  2mm
+  ]
+  \begin{bmatrix}
+    \rected{$+a_{12}$}{red}  w_2 \rected{$+a_{13}$}{blue}  w_3 \\
+    \rected{$-a_{12}$}{red}  w_1 \rected{$+a_{23}$}{green} w_3 \\
+    \rected{$-a_{13}$}{blue} w_1 \rected{$-a_{23}$}{green} w_2
+  \end{bmatrix}
+   & =
+  \begin{bmatrix}
+    \rected{$v_2$}{blue}  w_3 \rected{$-v_3$}{red}   w_2 \\
+    \rected{$v_3$}{red}   w_1 \rected{$-v_1$}{green} w_3 \\
+    \rected{$v_1$}{green} w_2 \rected{$-v_2$}{blue}  w_1
+  \end{bmatrix}
+  \hspace{20mm}
+  \\[
+  2mm
+  ]
+  \rvec{v}
+   & =
+  \begin{bmatrix}
+    -a_{23} \\
+    a_{13}  \\
+    -a_{12} \\
+  \end{bmatrix}
+\end{align*}
+
+
+\defi{0}{.33}{vektorinvariáns}
+
+Egy antiszimmetrikus lineáris transzformáció
+mindig leírható egy rögzített vektorral
+való keresztszorzással. Ez a vektor a leképezés
+vektorinvariánsa.
+
+
+\megj{1}{.33}
+
+Csak ortonormált, Descartes-féle bázisban
+számítható az előbbi módszerrel egy leképezés
+vektorinvariánsa.
+
+
+\allit{1}{.33}{Lineáris transzformáció nyoma}
+
+Egy lineáris transzformáció főátlójában lévő
+elemek összege minden koordinátarendszerben
+ugyan annyi, tehát a koordináta-transzformáció
+nem befojásolja. Ezt nevezzük a lineáris
+leképezés nyomának. (trace / spur)
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 1.4 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Differenciáloperátorok}
+
+Legyen $f: V \rightarrow V$ függvény ($\dim V = n$),
+melynek vegyük a deriváltját:
+\begin{equation*}
+  f \left( x_1; \; x_2; \; \dots ; \; x_n \right)
+  =
+  \begin{bmatrix}
+    f_1 \left( x_1; \; x_2; \; \dots ; \; x_n \right) \\
+    f_2 \left( x_1; \; x_2; \; \dots ; \; x_n \right) \\
+    \vdots                                            \\
+    f_2 \left( x_1; \; x_2; \; \dots ; \; x_n \right) \\
+  \end{bmatrix}
+\end{equation*}
+\begin{equation*}
+  \Diff f
+  =
+  \begin{bmatrix}
+    \partial_1 f_1 & \partial_2 f_1 & \dots  & \partial_n f_1 \\
+    \partial_1 f_2 & \partial_2 f_2 & \dots  & \partial_n f_2 \\
+    \vdots         & \vdots         & \ddots & \vdots         \\
+    \partial_1 f_n & \partial_2 f_n & \dots  & \partial_n f_n
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \grad^\transpose f_1 \\
+    \grad^\transpose f_2 \\
+    \vdots               \\
+    \grad^\transpose f_n \\
+  \end{bmatrix}
+  \in
+  \mathcal{M}_{n \cross n}
+\end{equation*}
+
+Definiáljuk az alábbi fogalakat:
+\begin{itemize}
+  \item rotáció
+        \tabto{2.4cm} – \tabto{3cm}
+        $\rot \; f := \Diff f - \Diff f ^{*}$
+
+  \item divergencia
+        \tabto{2.4cm} – \tabto{3cm}
+        $\div \; f := \tr \left( \Diff f \right)$
+\end{itemize}
+
+$V = \mathbb{R}^3$ esetén:
+\begin{equation*}
+  \rot \; f
+  =
+  \begin{bmatrix}
+    0                               &
+    \partial_2 f_1 - \partial_1 f_2 &
+    \partial_3 f_1 - \partial_1 f_3
+    \\
+    \partial_1 f_2 - \partial_2 f_1 &
+    0                               &
+    \partial_3 f_2 - \partial_2 f_3
+    \\
+    \partial_1 f_3 - \partial_3 f_1 &
+    \partial_2 f_3 - \partial_3 f_2 &
+    0
+  \end{bmatrix}
+\end{equation*}
+
+A mátrix vektorinvariánsa:
+\begin{equation*}
+  \rvec{v}
+  =
+  \begin{bmatrix}
+    \partial_2 f_3 - \partial_3 f_2 \\
+    \partial_3 f_1 - \partial_1 f_3 \\
+    \partial_1 f_2 - \partial_2 f_1
+  \end{bmatrix}
+  =
+  \underbrace{
+    \begin{bmatrix}
+      \partial_1 \\
+      \partial_2 \\
+      \partial_3
+    \end{bmatrix}
+  }_{\displaystyle\nabla}
+  \cross
+  \begin{bmatrix}
+    f_1 \\
+    f_2 \\
+    f_3
+  \end{bmatrix}
+\end{equation*}
+
+\pelda{0}{0}{Rotáció és divergencia számítása}
+\pagebreak
+
+
+\jel{0}{0}
+\begin{itemize}
+  \item $\grad \; f = \nabla f$
+  \item $\div \; f = \; \scalar{\nabla}{f}$
+  \item $\rot \; f = \nabla \cross f$
+\end{itemize}
+
+
+\pelda{0}{20}{Differenciáloperátorok kombinálása}
+\pagebreak
+
+
+\end{document}

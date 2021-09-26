@@ -1,0 +1,140 @@
+%Preamble
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{lastpage}
+\usepackage{t1enc}
+\usepackage[magyar]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb,physics}
+\usepackage{empheq}
+\usepackage{enumitem}
+\usepackage{subfiles}
+\usepackage{float}
+\usepackage{icomma}
+\usepackage{tabto}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+
+\usepackage[
+  cal=rsfso
+]{mathalpha}
+
+\usepackage{fancyhdr} \setlength{\headheight}{20pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+
+\usepackage{xparse}
+\DeclareDocumentCommand\defi{ m m g }{
+  {\vspace{#1em} \hspace{1.5em}
+    \underline{\textbf{Definíció:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\tetel{ m m g }{
+  {\vspace{#1em} \hspace{1.5em}
+    \underline{\textbf{Tétel:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\megj{ m m g }{
+  {\vspace{#1em} \hspace{1.5em}
+    \underline{\textbf{Megjegyzés:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\biz{ m m g }{
+  {\vspace{#1em} \hspace{1.5em}
+    \underline{\textbf{Bizonyítás:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\jel{ m m g }{
+  {\vspace{#1em} \hspace{1.5em}
+    \underline{\textbf{Jelölés:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\allit{ m m g }{
+  {\vspace{#1em}
+    \hspace{1.5em} \underline{\textbf{Állítás:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\ism{ m m g }{
+  {\vspace{#1em}
+    \hspace{1.5em} \underline{\textbf{Ismétlés:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\pelda{ m m g }{
+  {\vspace{#1em}
+    \hspace{1.5em} \underline{\textbf{Példa:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+\DeclareDocumentCommand\azon{ m m g }{
+  {\vspace{#1em}
+    \hspace{1.5em} \underline{\textbf{Azonosságok:}}
+    \IfNoValueF {#3} {\hspace{.2em} [ #3 ]}
+    \vspace{#2em}
+  }
+}
+
+\usepackage{bm}
+\newcommand{\rvec}[1]{\bm{#1}}
+\newcommand{\uvec}[1]{\widehat{\bm{#1}}}
+\newcommand{\rmat}[1]{\mathbf{#1}}
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\mathrm{End}}
+
+\newcommand{\transpose}{\mathsf{T}}
+\newcommand{\Diff}{\mathbf{D}}
+\renewcommand{\grad}{\mathrm{grad}}
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\rot}{\mathrm{rot}}
+
+\newcommand{\scalar}[2]{< #1 \, ; \, #2 >}
+\newcommand{\norma}[1]{\left|\left| #1 \right|\right|}
+
+\newcommand{\circled}[2]{\tikz[baseline=(char.base)]{
+  \node[shape=circle,draw,inner sep=1pt, thick, #2]
+  (char) {#1};
+}}
+\newcommand{\rected}[2]{\tikz[baseline=(char.base)]{
+  \node[shape=rectangle,draw,inner sep=2pt, thick, #2!40!gray]
+  (char) {{\color{black}#1}};
+}}
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\setlength{\parindent}{0mm}
+
+
+\begin{document}
+
+\subfile{week-01.tex}
+\subfile{week-02.tex}
+\subfile{week-03.tex}
+
+\end{document}
+
+% \usepackage{hyperref}
+% \usepackage{array}
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage{cancel}
