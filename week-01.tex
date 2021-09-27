@@ -385,9 +385,9 @@ melyek a következőképpen számíthatóak:
   }{\norma{\rvec{b}_i}} \cdot \frac{
     \rvec{b}_i
   }{\norma{\rvec{b}_i}}
-  = \underbrace{\frac{
-      \scalar{\rvec{v}}{\rvec{b}_i}
-    }{\scalar{\rvec{b}_i}{\rvec{b}_i}}}_{r_i}
+  = \underbrace{\rected{$\displaystyle\frac{
+          \scalar{\rvec{v}}{\rvec{b}_i}
+        }{\scalar{\rvec{b}_i}{\rvec{b}_i}}$}{yellow}}_{r_i}
   \cdot \rvec{b}_i
 \end{equation*}
 
@@ -404,13 +404,18 @@ bázisban megegyeznek.
   \rvec{v} = \sum_{j=1}^n r^j \uvec{e}_j
 \end{equation*}
 \begin{equation*}
-  \dots
+  r^j = \dfrac{
+    \scalar{\rvec{v}}{\uvec{e}_j}
+  }{
+    \scalar{\uvec{e}_j}{\uvec{e}_j}
+  } = \; \scalar{\rvec{v}}{\uvec{e}_j}
 \end{equation*}
 \begin{equation*}
-  \dots
-\end{equation*}
-\begin{equation*}
-  \dots
+  r_j = \; \scalar{
+    \sum_{i=1}^n r^i \, \uvec{e}_i
+  }{\uvec{e}_j} \; = \sum_{i=1}^n r^i \underbrace{
+    \scalar{\uvec{e}_i}{\uvec{e}_j}
+  }_{\displaystyle\delta_{ij}} \; = r^j
 \end{equation*}
 
 %-------------------------------------------------------------------------------

@@ -267,7 +267,7 @@ vektorinvariánsa.
 Egy lineáris transzformáció főátlójában lévő
 elemek összege minden koordinátarendszerben
 ugyan annyi, tehát a koordináta-transzformáció
-nem befojásolja. Ezt nevezzük a lineáris
+nem befolyásolja. Ezt nevezzük a lineáris
 leképezés nyomának. (trace / spur)
 
 %-------------------------------------------------------------------------------
@@ -362,7 +362,10 @@ A mátrix vektorinvariánsa:
   \end{bmatrix}
 \end{equation*}
 
-\pelda{0}{0}{Rotáció és divergencia számítása}
+$\nabla$ - Nabla operátor (formális differenciáloperátor)
+– nem vektor, de vektorként viselkedik.
+
+\pelda{1}{0}{Rotáció és divergencia számítása}
 \pagebreak
 
 
@@ -374,7 +377,25 @@ A mátrix vektorinvariánsa:
 \end{itemize}
 
 
-\pelda{0}{20}{Differenciáloperátorok kombinálása}
+\pelda{0}{0}{Differenciáloperátorok kombinálása}
+\begin{itemize}
+  \item $\grad \, \grad$,
+        $\grad \, \rot$,
+        $\div \, \div$,
+        $\rot \, \div$
+        – nem értelmes.
+
+  \item $\div \, \rot \, \rvec{u} \equiv 0$
+
+  \item $\rot \, \grad \, \varphi \equiv \rvec{0}$
+
+  \item $\div \, \grad \, \varphi
+          = \laplacian \, \varphi
+          = \Delta \, \varphi$
+        \hspace{1em} $\rightarrow$ \hspace{1em}
+        Laplace operátor
+\end{itemize}
+
 \pagebreak
 
 

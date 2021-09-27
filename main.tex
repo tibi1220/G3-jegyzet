@@ -1,11 +1,11 @@
 %Preamble
 \documentclass[12pt,a4paper]{article}
-\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm]{geometry}
+\usepackage[margin=20mm]{geometry}
 \usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
 
 \usepackage{lastpage}
-\usepackage{t1enc}
-\usepackage[magyar]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb,physics}
 \usepackage{empheq}
@@ -108,6 +108,7 @@
 \newcommand{\rot}{\mathrm{rot}}
 
 \newcommand{\scalar}[2]{< #1 \, ; \, #2 >}
+% \newcommand{\scalar}[2]{\left\langle #1 \, ; \, #2 \right\rangle}
 \newcommand{\norma}[1]{\left|\left| #1 \right|\right|}
 
 \newcommand{\circled}[2]{\tikz[baseline=(char.base)]{
