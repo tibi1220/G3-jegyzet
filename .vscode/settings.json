@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/*.aux": true,
+    "**/*.fls": true,
+    "**/*.synctex.gz": true,
+    "**/*.fdb_latexmk": true,
+    "**/.DS_Store": true
+  }
+}
