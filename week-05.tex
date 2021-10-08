@@ -1,0 +1,249 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\defi{1}{.33}{Elemi felület}
+
+Egy $S: [\; a \; ; \; b \;] \cross [\; a \; ; \; b \;]
+  \rightarrow \mathbb{R}^3$ elemi felület, ha $S$ legalább
+egyszer differenciálható és injektív.
+
+
+
+\megj{1}{0}
+\begin{itemize}
+  \item $\partial \left(
+          \; [\; a \; ; \; b \;] \cross [\; a \; ; \; b \;] \;
+          \right)$ a paramétertartomány pereme.
+
+  \item A felület irányítható, ha megadható rajta egy
+        differenciálható egységvektormező.
+\end{itemize}
+\begin{minipage}[c]{.49\textwidth}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          view={-45}{45}
+        ]
+        \addplot3[
+          opacity = 0.8,
+          surf,
+          colorbar,
+          colormap/PuBu,
+          shader=interp,
+          domain=-1:1,
+          domain y=-1.3:1.3,
+          samples=10
+        ]{exp(-x^2-y^2)};
+
+        \draw[-latex, ultra thick, green!40!magenta] (0,0,1) -- (0,0,1.5);
+        \draw[-latex, ultra thick, green!80!magenta] (0,0,1) -- (0,0,0.5);
+
+        \draw[-latex, ultra thick, green!40!magenta] (-.25,.25,.88) -- (-.5,0.25,1.4);
+        \draw[-latex, ultra thick, green!80!magenta] (-.25,.25,.88) -- (0,0.25,.36);
+
+        % \draw[-latex, ultra thick, green!40!magenta] (-.25,-.25,.88) -- (-.5,-.35,1.4);
+        \draw[-latex, ultra thick, green!40!magenta] (.25,-.25,.88) -- (.5,-.25,1.2);
+        \draw[-latex, ultra thick, green!80!magenta] (.25,-.25,.88) -- (0 ,-.25,.56);
+
+        \node [small dot,pin=210:{Belső pont}] at (-0.5, -0.5, 0.6 )  {};
+        \node [small dot,pin=90:{Perempont}]   at (0   , -1.3, 0.18)  {};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Irányítás szemléltetése}
+  \end{figure}
+\end{minipage}
+\begin{minipage}[c]{.49\textwidth}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        declare function={f(\x,\y)=exp(-\x^2-\y^2);}
+      ]
+      \begin{axis}[
+          view={135}{45},
+        ]
+        \addplot3[
+          opacity = 1,
+          surf,
+          colorbar,
+          colormap/PuBu,
+          % shader=interp,
+          domain=-1:1,
+          domain y=-1.3:1.3,
+          samples=14
+        ]{f(x,y)};
+
+        \draw[-latex, ultra thick, blue!40!magenta]   (0,0,1) -- (-1,0,.9)
+        node[
+          midway,
+          above left=.2cm and -0.1cm,
+          black,fill=yellow!50!white,
+          rectangle,
+          rounded corners=3pt
+        ] {$\partialderivative{\rvec{r}}{u}$};
+
+        \draw[-latex, ultra thick, yellow!40!magenta] (0,0,1) -- (0,1,1.1)
+        node[
+          midway,
+          below=.2cm,
+          black,fill=yellow!50!white,
+          rectangle,
+          rounded corners=3pt
+        ] {$\partialderivative{\rvec{r}}{v}$};
+        s
+
+        \draw[dotted, ultra thick, blue!40!magenta] (0,1,1.1) -- (-1,1,1);
+        \draw[dotted, ultra thick, yellow!40!magenta] (-1,0,.9) -- (-1,1,1);
+
+        \draw[fill=white!90!yellow,fill opacity=0.6]
+        (0,0,1) -- (-1,0,.9) -- (-1,1,1) -- (0,1,1.1) -- cycle
+        node [above right=-0.2cm and 1.2cm, opacity=1] {$A$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Elemi felület}
+  \end{figure}
+\end{minipage}
+
+
+
+
+\defi{1}{.33}{Skalármező skalárértékű felületmenti integrálja}
+
+Legyen $f: \mathbb{R}^3 \rightarrow \mathbb{R}$ skalármező,
+$\rvec{\varphi}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$
+Ekkor finomítsuk minden határon túl a
+\begin{equation*}
+  \sum_i f \left( \xi_i ;\; \eta_i ;\; \zeta_i \right) \Delta \varphi_i
+\end{equation*}
+összeget:
+\begin{equation*}
+  \int f ( \rvec{\varphi}(\rvec{r})) \, \differential\varphi
+\end{equation*}
+Számítása:
+\begin{gather*}
+  \iint f(\rvec{r}(u ;\; v)) \norma{
+    \partialderivative{\rvec{r}}{u}
+    \cross
+    \partialderivative{\rvec{r}}{v}
+  } \, \differential u \, \differential v
+  \quad \rightarrow \quad
+  \text{ha a felület paraméterezve van}
+  \\
+  \iint f(\varPhi(x ;\; y)) \sqrt{
+    1
+    + \left( \partial_x f \right)^2
+    + \left( \partial_y f \right)^2
+  } \, \differential x \, \differential y
+  \quad \rightarrow \quad
+  \text{ha } z=\varPhi(x ;\; y) \text{ alakban van}
+\end{gather*}
+
+
+\pelda{1}{20}{Súlypont számítása}
+
+
+\defi{1}{.33}{Skalármező vektorértékű felületmenti integrálja}
+
+Felület implicite megadása esetén
+$\left( z = \varPhi(x ;\; y) \right)$:
+\begin{equation*}
+  \int f(\rvec{r}) \, \differential \rvec{A}
+  =
+  \iint f(x ;\; y ;\; \varPhi(x ;\; y))
+  \begin{bmatrix}
+    \pm \partial_x \varPhi \\
+    \pm \partial_y \varPhi \\
+    \mp 1
+  \end{bmatrix}
+  \, \differential x \, \differential y
+\end{equation*}
+
+
+
+\defi{1}{.33}{Vektormező skalárértékű felületmenti integrálja}
+
+Legyen $\rvec{w}: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ vektormező,
+$\rvec{r}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$ felület:
+
+\begin{minipage}[c]{.49\textwidth}
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        declare function={f(\x,\y)=exp(-\x^2-\y^2);}
+      ]
+      \begin{axis}[
+          view={100}{45},
+          axis lines=none,
+        ]
+        \addplot3[
+          opacity = 1,
+          surf,
+          colorbar,
+          colormap/PuBu,
+          % shader=interp,
+          domain=-1:1,
+          domain y=-1.3:1.3,
+          samples=12
+        ]{f(x,y)};
+
+        \draw[-latex, ultra thick, green!40!magenta]   (0,0,1) -- (0,0,1.6)
+        node[
+          midway,
+          left=.2cm,
+          black,fill=yellow!50!white,
+          rectangle,
+          rounded corners=3pt
+        ] {$\rvec{n}_i$};
+
+        \draw[-latex, ultra thick, yellow!40!magenta] (0,0,1) -- (-.33,1.33,1.2)
+        node[
+          midway,
+          below=.2cm,
+          black,fill=yellow!50!white,
+          rectangle,
+          rounded corners=3pt
+        ] {$\rvec{w}_i$};
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Normálvektor szemléltetése}
+  \end{figure}
+\end{minipage}
+\begin{minipage}[c]{.5\textwidth}
+  Finomítsuk minden határon túl a
+  \begin{equation*}
+    \sum_i \scalar{
+      \rvec{w}(\xi_i ;\; \eta_i ;\; \zeta_i)
+    }{
+      \rvec{n}_i(\xi_i ;\; \eta_i ;\; \zeta_i)
+    }
+  \end{equation*}
+  összeget:
+  \begin{gather*}
+    \int \scalar{\rvec{w}}{\rvec{S}} \; =
+    \\
+    = \iint \scalar{
+      \rvec{w}(\rvec{r}(u ;\; v))
+    }{
+      \partialderivative{\rvec{r}}{u}
+      \cross
+      \partialderivative{\rvec{r}}{v}
+    }
+    \, \differential u \, \differential v
+  \end{gather*}
+\end{minipage}
+
+
+
+\defi{1}{.33}{Vektormező vektorértékű felületmenti integrálja}
+\begin{equation*}
+  \int \rvec{w} \cross \differential \rvec{S}
+  = \iint \rvec{w}(\rvec{r}(u ;\; v)) \cross
+  \left(
+  \partialderivative{\rvec{r}}{u}
+  \cross
+  \partialderivative{\rvec{r}}{v}
+  \right) \, \differential u \, \differential v
+\end{equation*}
+
+\end{document}
