@@ -130,7 +130,7 @@ Számítása:
   \quad \rightarrow \quad
   \text{ha a felület paraméterezve van}
   \\
-  \iint f(\varPhi(x ;\; y)) \sqrt{
+  \iint f(x ;\; y ;\; \varPhi(x ;\; y)) \sqrt{
     1
     + \left( \partial_x f \right)^2
     + \left( \partial_y f \right)^2
@@ -220,7 +220,7 @@ $\rvec{r}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$ felület:
   \end{equation*}
   összeget:
   \begin{gather*}
-    \int \scalar{\rvec{w}}{\rvec{S}} \; =
+    \int \scalar{\rvec{w}}{\differential\rvec{S}} \; =
     \\
     = \iint \scalar{
       \rvec{w}(\rvec{r}(u ;\; v))
