@@ -6,7 +6,7 @@
 
 Egy $\rvec{v}: V \rightarrow V$ vektormező skalárpotenciálos,
 ha $\exists \; \varphi : V \rightarrow \mathbb{R}$ skalármező,
-hogy $\rvec{v} = \grad \; \varphi$.
+hogy $\rvec{v} = \grad \varphi$.
 
 
 
@@ -14,7 +14,7 @@ hogy $\rvec{v} = \grad \; \varphi$.
 
 Egy $\rvec{v}: V \rightarrow V$ vektormező vektorpotenciálos,
 ha $\exists \; \rvec{u} : V \rightarrow V$ vektormező,
-hogy $\rvec{v} = \rot \; \rvec{u}$.
+hogy $\rvec{v} = \rot \rvec{u}$.
 
 
 
@@ -24,10 +24,10 @@ $! \; \rvec{v}: V \rightarrow V$ mindenhol értelmezett,
 legalább egyszer differenciálható vektormező, ekkor \dots
 \begin{itemize}
   \item $\rvec{v}$ skalárpotenciálos $\Leftrightarrow$
-        $\rot \; \rvec{v} = \rvec{0}$
+        $\rot \rvec{v} = \rvec{0}$
 
   \item $\rvec{v}$ vektorpotenciálos $\Leftrightarrow$
-        $\div \; \rvec{v} = 0$
+        $\div \rvec{v} = 0$
 \end{itemize}
 
 
@@ -36,13 +36,13 @@ legalább egyszer differenciálható vektormező, ekkor \dots
 
 Ha $\rvec{v}$ skalárpotenciálos, akkor
 $\exists \; \varphi : V \rightarrow \mathbb{R}$,
-hogy $\rvec{v} = \grad \; \varphi$, ekkor
-$\rot \; \rvec{v} = \rot \; \grad \; \varphi \equiv \rvec{0}$
+hogy $\rvec{v} = \grad \varphi$, ekkor
+$\rot \rvec{v} = \rot \grad \varphi \equiv \rvec{0}$
 \\[.33em]
 Ha $\rvec{v}$ vektorpotenciálos, akkor
 $\exists \; \rvec{u} : V \rightarrow V$,
-hogy $\rvec{v} = \rot \; \rvec{u}$, ekkor
-$\div \; \rvec{v} = \div \; \rot \; \rvec{u} \equiv 0$
+hogy $\rvec{v} = \rot \rvec{u}$, ekkor
+$\div \rvec{v} = \div \rot \rvec{u} \equiv 0$
 
 
 
@@ -56,56 +56,56 @@ $\lambda; \mu \in \mathbb{R}$ skalárok.
 \begin{itemize}
   \item Teljesül a linearitás:
         \begin{alignat*}{4}
-          \grad & (\lambda \, \varPhi  &  & + \mu \, \varPsi)  &  & = \lambda \, \grad \, \varPhi &  & + \mu \, \grad \, \varPsi
+          \grad & (\lambda \, \varPhi  &  & + \mu \, \varPsi)  &  & = \lambda \, \grad \varPhi &  & + \mu \, \grad \varPsi
           \\
-          \rot  & (\lambda \, \rvec{v} &  & + \mu \, \rvec{w}) &  & = \lambda \, \rot \, \rvec{v} &  & + \mu \, \rot \, \rvec{w}
+          \rot  & (\lambda \, \rvec{v} &  & + \mu \, \rvec{w}) &  & = \lambda \, \rot \rvec{v} &  & + \mu \, \rot \rvec{w}
           \\
-          \div  & (\lambda \, \rvec{v} &  & + \mu \, \rvec{w}) &  & = \lambda \, \div \, \rvec{v} &  & + \mu \, \div \, \rvec{w}
+          \div  & (\lambda \, \rvec{v} &  & + \mu \, \rvec{w}) &  & = \lambda \, \div \rvec{v} &  & + \mu \, \div \rvec{w}
         \end{alignat*}
 
   \item Zérusság:
         \begin{alignat*}{1}
-          \rot \, \grad \, \rvec{u} & \equiv \rvec{0}
+          \rot \grad \rvec{u} & \equiv \rvec{0}
           \\
-          \div \, \rot \, \rvec{v}  & \equiv 0
+          \div \rot \rvec{v}  & \equiv 0
         \end{alignat*}
 
   \item Deriválási szabályokhoz hasonló:
         \begin{align*}
           \grad \left( \varPhi \, \varPsi \right)
-           & = \varPhi \, \grad \, \varPsi
-          + \varPsi \, \grad \, \varPhi
+           & = \varPhi \, \grad \varPsi
+          + \varPsi \, \grad \varPhi
           \\
           \div \left( \varPhi \, \rvec{v} \right)
-           & = \varPhi \, \div \, \rvec{v} \,
-          + \scalar{\rvec{v}}{\grad \, \varPhi}
+           & = \varPhi \, \div \rvec{v} \,
+          + \scalar{\rvec{v}}{\grad \varPhi}
           \\
           \rot \left( \varPhi \, \rvec{v} \right)
-           & = \varPhi \, \rot \, \rvec{v}
-          - \rvec{v} \cross \grad \, \varPhi
+           & = \varPhi \, \rot \rvec{v}
+          - \rvec{v} \cross \grad \varPhi
         \end{align*}
 
   \item Egyéb szabályok:
         \begin{align*}
-          \rot \, \rot \, \rvec{v}
-           & =\grad \, \div \, \rvec{v}
+          \rot \rot \rvec{v}
+           & =\grad \div \rvec{v}
           - \Delta \rvec{v}
           \\
           \rot \left( \rvec{u} \cross \rvec{v} \right)
-           & = \rvec{u} \, \div \, \rvec{v}
-          - \rvec{v} \, \div \, \rvec{u}
+           & = \rvec{u} \, \div \rvec{v}
+          - \rvec{v} \, \div \rvec{u}
           + (\Diff \rvec{u}) \rvec{v}
           - (\Diff \rvec{v}) \rvec{u}
           \\
           \div \left( \rvec{u} \cross \rvec{v} \right)
-           & = \; \scalar{\rvec{v}}{\rot \, \rvec{u}}
-          - \scalar{\rvec{u}}{\rot \, \rvec{v}}
+           & = \; \scalar{\rvec{v}}{\rot \rvec{u}}
+          - \scalar{\rvec{u}}{\rot \rvec{v}}
           \\
           \grad \left( \scalar{\rvec{u}}{\rvec{v}} \right)
            & = (\Diff \rvec{u}) \rvec{v}
           + (\Diff \rvec{v}) \rvec{u}
-          + \rvec{v} \cross \rot \, \rvec{u}
-          + \rvec{u} \cross \rot \, \rvec{v}
+          + \rvec{v} \cross \rot \rvec{u}
+          + \rvec{u} \cross \rot \rvec{v}
         \end{align*}
 \end{itemize}
 
@@ -139,7 +139,7 @@ függvényt pályasebességnek hívjuk.
 A pályasebesség $I$ feletti integrálját a
 görbe ívhosszának nevezzük:
 \begin{equation*}
-  L(\rvec{r}) = \int_I \norma{\dot{\rvec{r}}(t)} \, \differential \, t
+  L(\rvec{r}) = \int_I \norma{\dot{\rvec{r}}(t)} \, \differential t
 \end{equation*}
 
 
@@ -260,7 +260,7 @@ He létezik a $\displaystyle \sum_ i \norma{
   görbe mentén, és ezt a $\rvec{v}$ vektor $\rvec{r}$ görbe menti
   vonalintegráljának nevezzük. Jelölése:
   \begin{equation*}
-    \int_{\rvec{r}} \scalar{\rvec{w}}{\differential \, \rvec{r}}
+    \int_{\rvec{r}} \scalar{\rvec{w}}{\differential \rvec{r}}
   \end{equation*}
 \end{minipage}
 
@@ -281,10 +281,10 @@ $\rvec{r} : I \rightarrow \mathbb{R}^3$, $t \mapsto \rvec{r}(t)$,
 akkor a $\rvec{w}: \mathbb{R}^3 \rightarrow \mathbb{R}^3$ vektormező
 $\rvec{\gamma}$ görbén vett (skalárértékű) integrálja:
 \begin{equation*}
-  \int_{\rvec{r}} \scalar{\rvec{w}}{\differential \, \rvec{r}}
+  \int_{\rvec{r}} \scalar{\rvec{w}}{\differential \rvec{r}}
   = \int_{t \in I} \scalar{
     \rvec{w}(\rvec{r}(t))
-  }{\dot{\rvec{r}}(t)} \differential \, t
+  }{\dot{\rvec{r}}(t)} \differential t
 \end{equation*}
 
 

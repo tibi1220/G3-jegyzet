@@ -121,21 +121,33 @@
 }
 
 \usepackage{bm}
-\newcommand{\rvec}[1]{\bm{#1}}
-\newcommand{\uvec}[1]{\widehat{\bm{#1}}}
+\newcommand{\rvec}[1]{\boldsymbol{#1}}
+\newcommand{\uvec}[1]{\widehat{\boldsymbol{#1}}}
 \newcommand{\rmat}[1]{\mathbf{#1}}
 
-\newcommand{\Hom}{\mathrm{Hom}}
-\newcommand{\End}{\mathrm{End}}
+\newcommand{\vcurve}[1]{\boldsymbol{#1}}
+\newcommand{\rcurve}[1]{{#1}}
+
+\newcommand{\vsurf}[1]{\boldsymbol{#1}}
+\newcommand{\rsurv}[1]{{#1}}
+
+\newcommand{\vvol}[1]{\boldsymbol{#1}}
+\newcommand{\rvol}[1]{{#1}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+
+\let\grad\relax
+\let\div\relax
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\grad}{grad}
 
 \newcommand{\transpose}{\mathsf{T}}
 \newcommand{\Diff}{\mathbf{D}}
-\renewcommand{\grad}{\mathrm{grad}}
-\renewcommand{\div}{\mathrm{div}}
-\newcommand{\rot}{\mathrm{rot}}
+% \renewcommand{\differential}{\mathrm{d}}
 
 \newcommand{\scalar}[2]{< #1 \, ; \, #2 >}
-% \newcommand{\scalar}[2]{\left\langle #1 \, ; \, #2 \right\rangle}
 \newcommand{\norma}[1]{\left|\left| #1 \right|\right|}
 
 \newcommand{\circled}[2]{\tikz[baseline=(char.base)]{
@@ -152,6 +164,7 @@
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \setlength{\parindent}{0mm}
+% \setlength{\parskip}{.33em}
 
 
 \begin{document}

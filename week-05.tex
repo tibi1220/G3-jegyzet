@@ -148,7 +148,7 @@ Számítása:
 Felület implicite megadása esetén
 $\left( z = \varPhi(x ;\; y) \right)$:
 \begin{equation*}
-  \int f(\rvec{r}) \, \differential \rvec{A}
+  \int f(\rvec{r}) \, \differential \vsurf{S}
   =
   \iint f(x ;\; y ;\; \varPhi(x ;\; y))
   \begin{bmatrix}
@@ -220,7 +220,7 @@ $\rvec{r}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$ felület:
   \end{equation*}
   összeget:
   \begin{gather*}
-    \int \scalar{\rvec{w}}{\differential\rvec{S}} \; =
+    \int \scalar{\rvec{w}}{\differential\vsurf{S}} \; =
     \\
     = \iint \scalar{
       \rvec{w}(\rvec{r}(u ;\; v))
@@ -237,7 +237,7 @@ $\rvec{r}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$ felület:
 
 \defi{1}{.33}{Vektormező vektorértékű felületmenti integrálja}
 \begin{equation*}
-  \int \rvec{w} \cross \differential \rvec{S}
+  \int \rvec{w} \cross \differential \vsurf{S}
   = \iint \rvec{w}(\rvec{r}(u ;\; v)) \cross
   \left(
   \partialderivative{\rvec{r}}{u}

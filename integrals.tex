@@ -36,9 +36,20 @@
       $\displaystyle\int f(\rvec{r}) \, \differential \rvec{r}$
     };
 
-    \foreach \i in {A, B, C, D}{
+    \foreach \i/\j in {A/right, B/right, C/left, D/left}{
         \draw [thick, ->] (O) -- (\i);
+        % \node [
+        %   thick,
+        %   rectangle,
+        %   \j=2.5cm,
+        %   fill=yellow!10,
+        %   draw=black,
+        %   minimum width=2.5cm,
+        %   minimum height=3cm,
+        %   rounded corners=3px
+        % ] at (\i) {};
       }
+
   \end{tikzpicture}
   \caption{Görbe menti integrálok}
 \end{figure}
@@ -77,19 +88,19 @@
     \node [above] at (O) {$\displaystyle\int$};
 
     \node [circle, fill=magenta!20, minimum size=3cm] (A) at (\ra, \ra) {
-      $\displaystyle\int f(\rvec{r}) \, \differential S$
+      $\displaystyle\int f(\rvec{r}) \, \differential \rsurv{S}$
     };
 
     \node [circle, fill=blue!30, minimum size=3cm] (B) at (\ra, -\ra) {
-      $\displaystyle\int \scalar{\rvec{w}}{\differential \rvec{S}}$
+      $\displaystyle\int \scalar{\rvec{w}}{\differential \vsurf{S}}$
     };
 
     \node [circle, fill=cyan!30, minimum size=3cm] (C) at (-\ra, -\ra) {
-      $\displaystyle\int \rvec{w} \cross \differential \rvec{S}$
+      $\displaystyle\int \rvec{w} \cross \differential \vsurf{S}$
     };
 
     \node [circle, fill=yellow!30, minimum size=3cm] (D) at (-\ra, \ra) {
-      $\displaystyle\int f(\rvec{r}) \, \differential \rvec{S}$
+      $\displaystyle\int f(\rvec{r}) \, \differential \vsurf{S}$
     };
 
     \foreach \i in {A, B, C, D}{

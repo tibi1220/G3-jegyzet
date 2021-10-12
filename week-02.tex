@@ -311,16 +311,16 @@ Definiáljuk az alábbi fogalmakat:
 \begin{itemize}
   \item rotáció
         \tabto{2.4cm} – \tabto{3cm}
-        $\rot \; f := \Diff f - \Diff f ^{*}$
+        $\rot f := \Diff f - \Diff f ^{*}$
 
   \item divergencia
         \tabto{2.4cm} – \tabto{3cm}
-        $\div \; f := \tr \left( \Diff f \right)$
+        $\div f := \tr \left( \Diff f \right)$
 \end{itemize}
 
 $V = \mathbb{R}^3$ esetén:
 \begin{equation*}
-  \rot \; f
+  \rot f
   =
   \begin{bmatrix}
     0                               &
@@ -371,25 +371,25 @@ $\nabla$ - Nabla operátor (formális differenciáloperátor)
 
 \jel{0}{0}
 \begin{itemize}
-  \item $\grad \; f = \nabla f$
-  \item $\div \; f = \; \scalar{\nabla}{f}$
-  \item $\rot \; f = \nabla \cross f$
+  \item $\grad f = \nabla f$
+  \item $\div f = \; \scalar{\nabla}{f}$
+  \item $\rot f = \nabla \cross f$
 \end{itemize}
 
 
 \pelda{0}{0}{Differenciáloperátorok kombinálása}
 \begin{itemize}
-  \item $\grad \, \grad$,
-        $\grad \, \rot$,
-        $\div \, \div$,
-        $\rot \, \div$
+  \item $\grad \grad$,
+        $\grad \rot$,
+        $\div \div$,
+        $\rot \div$
         – nem értelmes.
 
-  \item $\div \, \rot \, \rvec{u} \equiv 0$
+  \item $\div \rot \rvec{u} \equiv 0$
 
-  \item $\rot \, \grad \, \varphi \equiv \rvec{0}$
+  \item $\rot \grad \varphi \equiv \rvec{0}$
 
-  \item $\div \, \grad \, \varphi
+  \item $\div \grad \varphi
           = \laplacian \, \varphi
           = \Delta \, \varphi$
         \hspace{1em} $\rightarrow$ \hspace{1em}
