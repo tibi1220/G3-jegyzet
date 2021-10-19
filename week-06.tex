@@ -1,0 +1,189 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Integrálátalakító tételek}
+
+\tetel{0}{.33}{Strokes – tétel}
+
+! $\rsurf{S} :
+  [\, a; b \,] \cross [\, a; b \,]
+  \rightarrow \mathbb{R}^3$ irányított, parametrizált,
+elemi felület. Irányítsuk a peremet jobbkézszabály szerint.
+Továbbá ! $\rvec{v} : \mathbb{R}^3 \rightarrow \mathbb{R}^3$
+legalább egyszer folytonosan differenciálható vektormező,
+ekkor
+\begin{equation*}
+  \int \limits_\rsurf{S}
+  \scalar{\rot \rvec{v}}{\differential \vsurf{S}}
+  =
+  \oint \limits_{\rcurve{\gamma}}
+  \scalar{\rvec{v}}{\differential \rvec{r}},
+\end{equation*}
+ahol $\rcurve{\gamma} = \partial \rsurf{S}$.
+
+
+
+\megj{1}{0}
+\begin{itemize}
+  \item A tétel elemi felületre van kimondva.
+
+
+  \item A tétel a következőképpen is kimondható:
+
+        Határolja $\rsurf{S}$ felületet $\rcurve{\gamma}$
+        zárt görbe. Legyen egyszeresen differenciálható
+        (pontra húzható), itányítható. Ekkor a vektormező
+        a határvonalán folytonosan differenciálható, a
+        fenti összefüggés érvényes.
+
+
+  \item Ha a teljes felület nem írható le $z = f(x;y)$
+        függvénnyel, akkor felbontjuk olyan részekre,
+        melyeken már érvényes a tétel. Ott alkalmazzuk,
+        majd a részeredményeket összegezzük.
+
+  \item Egy vektormező bármely zárt görbe menti integrálja
+        akkor tűnik el, ha $\rvec{v} = \grad \varphi$,
+        hiszen $\rot \rvec{v} = \rot \grad \varphi \equiv 0$.
+\end{itemize}
+
+
+
+\defi{1}{.33}{Elemi tértartomány}
+
+$\rvol{V} : [\, a; b \,]^3 \rightarrow \mathbb{R}^3$
+elemi tértartomány, ha legalább egyszer folytonosan
+differenciálható leképezés. Ekkor
+$\det \left( \Diff \rsurf{V} \right) \neq 0$.
+
+
+
+\defi{1}{.33}{Térfogat}
+
+Készítsünk egy olyan beleírt ($c_i$) és körülírt ($C_i$)
+kockarendszert, melyekre igaz, hogy $c_i \cap c_j$
+csak lap, él, vagy csúcs lehet. Ekkor fennáll, hogy:
+\begin{equation*}
+  \underset{i}{\cup} \; c_i
+  \subset \rvol{V} \subset
+  \underset{j}{\cup} \; C_i
+\end{equation*}
+
+Finomítsuk minden határon túl ezeket a kockarendszereket.
+Ha ezek közös határértékhez tartanak, akkor:
+\begin{equation*}
+  \vol V = \iiint \limits_{[\, a; b \,]^3} \left|
+  \det \left( \Diff \rsurf{V}(u; v; t) \right)
+  \right|
+  \, \differential u
+  \, \differential v
+  \, \differential t
+\end{equation*}
+
+
+
+\megj{1}{.33}
+
+Pozitív az irányítás, ha $\det \Diff \rvol{V} > 0$.
+
+
+
+\defi{1}{.33}{Skalármező térfogaton vett skalárértékű integrálja}
+
+! $\varphi : \mathbb{R}^3 \rightarrow \mathbb{R}$ folytonos
+skalármező, $\rvol{V}$ irányított, paraméterezett, elemi
+tértartomány. Ekkor a $\varphi$ $\rvol{V}$-n vett integrálja:
+\begin{equation*}
+  \int \limits_{\rvol{V}} \varphi \, \differential \rvol{V}
+  =
+  \iiint \limits_{[\, a; b \,]^3} \varphi \left(
+  \rvol{V}(u; v; t)
+  \right) \det \left(
+  \Diff \rvol{V}(u; v; t)
+  \right)
+  \, \differential u
+  \, \differential v
+  \, \differential t
+\end{equation*}
+
+
+
+\tetel{1}{.33}{Gauss – Osztogradszkij tétel}
+
+! $\rvol{V} : [\, a; b \,]^3 \rightarrow \mathbb{R}^3$
+elemi, irányított, paraméterezett tértartomány,
+$\rvec{w} : \mathbb{R}^3 \rightarrow \mathbb{R}^3$
+$\rvol{V}$-n legalább egyszer folytonosan differenciálható
+vektormező. Jelölje $\partial \rvol{V} = \rsurf{S}$
+a $\rvol{V}$ peremét indukált irányítással. Ekkor:
+\begin{equation*}
+  \int \limits_{\rvol{V}} \div \rvec{w} \, \differential \rvol{V}
+  =
+  \oint \limits_{\partial \rvol{V}}
+  \scalar{\rvec{w}}{\differential \vsurf{S}}
+\end{equation*}
+
+
+
+\megj{1}{0}
+\begin{itemize}
+  \item Ha a vektormező forrásmentes, akkor bármely
+        felületre vett felületi integrálja zérus.
+
+  \item A térfogatot továbbonthatjuk kisebb egységekre,
+        majd a részeredményeket összegezzük.
+\end{itemize}
+
+
+
+\tetel{1}{.33}{Green – tétel asszimmetrikus alakja}
+
+! $\varphi, \psi : \mathbb{R}^3 \rightarrow \mathbb{R}$
+kétszeresen folytonos skalármezők, $\rvol{V} \subset \mathbb{R}^3$
+paraméterezett, irányított tértartomány,
+$\partial \rvol{V} = \rsurf{S}$
+perem indukált irányítással, ekkor:
+\begin{equation*}
+  \int \limits_{\rvol{V}}
+  \psi \, \Delta \varphi \; + \scalar{\grad \psi}{\grad \varphi}
+  \, \differential \rvol{V}
+  =
+  \int \limits_{\partial \rvol{v}}
+  \scalar{\psi \grad \varphi}{\differential \vsurf{S}}
+\end{equation*}
+
+
+
+\biz{1}{.33}
+
+! $\rvec{w} = \psi \grad \varphi$, akkor:
+\begin{equation*}
+  \div \rvec{w}
+  =
+  \div \left(
+  \psi \grad \varphi
+  \right)
+  =
+  \psi \, \Delta \varphi \; + \scalar{\grad \psi}{\grad \varphi}
+\end{equation*}
+
+
+
+\tetel{1}{.33}{Green – tétel szimmetrikus alakja}
+! $\varphi, \psi : \mathbb{R}^3 \rightarrow \mathbb{R}$
+kétszeresen folytonos skalármezők, $\rvol{V} \subset \mathbb{R}^3$
+paraméterezett, irányított tértartomány,
+$\partial \rvol{V} = \rsurf{S}$
+perem indukált irányítással, ekkor:
+\begin{equation*}
+  \int \limits_{\rvol{V}}
+  \psi \, \Delta \varphi - \varphi \, \Delta \psi
+  =
+  \int \limits_{\partial \rvol{v}}
+  \scalar{
+    \psi \grad \varphi - \varphi \grad \psi
+  }{\differential \vsurf{S}}
+\end{equation*}
+
+\end{document}
