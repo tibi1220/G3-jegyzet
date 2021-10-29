@@ -13,7 +13,11 @@
 \usepackage{float}
 \usepackage{icomma}
 \usepackage{tabto}
-% \usepackage{estouvint}
+\usepackage[
+  colorlinks=true,
+  linkcolor=black,
+  % pdfborderstyle={/S/U/W 1},
+]{hyperref}
 
 \usepackage{tikz}
 \usepackage{tkz-euclide}
@@ -52,6 +56,7 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \setlength{\headheight}{20pt}
 \pagestyle{fancy}
+\cfoot{\thepage\ / \pageref{LastPage}}
 
 \usepackage{xparse}
 \DeclareDocumentCommand\defi{ m m g }{
@@ -174,6 +179,9 @@
 \begin{document}
 
 \subfile{titlepage.tex}
+
+\tableofcontents
+\pagebreak
 
 \subfile{week-01.tex}
 \subfile{week-02.tex}
