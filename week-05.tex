@@ -111,7 +111,7 @@ egyszer differenciálható és injektív.
 \defi{1}{.33}{Skalármező skalárértékű felületmenti integrálja}
 
 Legyen $f: \mathbb{R}^3 \rightarrow \mathbb{R}$ skalármező,
-$\rvec{\varphi}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$
+$\vsurf{\varphi}: U \subset \mathbb{R}^2 \rightarrow \mathbb{R}^3$
 Ekkor finomítsuk minden határon túl a
 \begin{equation*}
   \sum_i f \left( \xi_i ;\; \eta_i ;\; \zeta_i \right) \Delta \varphi_i
@@ -132,8 +132,8 @@ Számítása:
   \\
   \iint f(x ;\; y ;\; \varPhi(x ;\; y)) \sqrt{
     1
-    + \left( \partial_x f \right)^2
-    + \left( \partial_y f \right)^2
+    + \left( \partial_x \varPhi \right)^2
+    + \left( \partial_y \varPhi \right)^2
   } \, \differential x \, \differential y
   \quad \rightarrow \quad
   \text{ha } z=\varPhi(x ;\; y) \text{ alakban van}
