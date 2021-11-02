@@ -27,7 +27,7 @@ jobs:
           root_file: main.tex
 
       - name: Upload document to Release
-        id: upload-release-asset
+        id: upload-latex
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
           asset_content_type: application/pdf
 
       - name: Upload document to Release
-        id: upload-release-asset
+        id: upload-log
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -46,4 +46,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./main.log
           asset_name: logfile.log
-          asset_content_type: txt
+          asset_content_type: text/log
