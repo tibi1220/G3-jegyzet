@@ -3,17 +3,6 @@
 \usepackage[margin=20mm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[magyar]{babel}
-
-\makeatletter
-\expandafter\let\csname active@char\string?\endcsname\relax
-\expandafter\let\csname active@char\string!\endcsname\relax
-\expandafter\let\csname active@char\string:\endcsname\relax
-
-\initiate@active@char{?}
-\initiate@active@char{!}
-\initiate@active@char{:}
-\makeatother
-
 \usepackage{t1enc}
 
 \usepackage{lastpage}
@@ -58,9 +47,7 @@
     shapes.geometric
   }
 
-\usepackage[
-  cal=rsfso
-]{mathalpha}
+\usepackage[cal=rsfso]{mathalpha}
 
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0.5pt}
