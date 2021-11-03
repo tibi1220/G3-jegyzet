@@ -5,14 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get current Date
-        id: date
+        id: get-date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d--%H-%M-%S')"
 
       - name: Set up Git repository
+        id: setup-repo
         uses: actions/checkout@v2
 
       - name: Create release
-        id: create_release
+        id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -22,9 +23,12 @@ jobs:
           prerelease: false
 
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v2
+        id: compile-latex
+        uses: xu-cheng/texlive-action/full@v1
         with:
-          root_file: main.tex
+          run: |
+            tlmgr update mathalpha
+            pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -recorder  "main.tex"
 
       - name: Upload document to Release
         id: upload-latex
