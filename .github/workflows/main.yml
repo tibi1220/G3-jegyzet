@@ -28,7 +28,7 @@ jobs:
         with:
           run: |
             tlmgr update mathalpha
-            pdflatex  -file-line-error -halt-on-error -interaction=nonstopmode -recorder  "main.tex"
+            latexmk  -file-line-error -halt-on-error -interaction=nonstopmode -recorder  -pdf "main.tex"
 
       - name: Upload document to Release
         id: upload_latex
