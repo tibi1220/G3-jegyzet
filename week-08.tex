@@ -123,14 +123,20 @@ a konstansok megfelelő megválasztásával.
   \begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale = .66]
-      \draw[very thin,color=gray] (-3.1,-2.1) grid (3.1,6.1);
+      \draw[very thin,color=gray] (-3.1,-1.1) grid (3.1,7.1);
       \draw[->] (-3.2,0) -- (3.2,0) node[right] {$x$};
-      \draw[->] (0,-2.2) -- (0,6.2) node[above] {$y$};
+      \draw[->] (0,-1.2) -- (0,7.2) node[above] {$y$};
 
-      \draw[thick, magenta!50!black ,domain=-2:2, smooth] plot ({\x},{\x*\x});
+      \draw[thick, cyan!50!black    ,domain=-2:2, smooth] plot ({\x},{\x*\x - 1});
+      \draw[thick, magenta!50!black ,domain=-2:2, smooth] plot ({\x},{\x*\x + 0});
       \draw[thick, blue!50!black    ,domain=-2:2, smooth] plot ({\x},{\x*\x + 1});
       \draw[thick, yellow!50!black  ,domain=-2:2, smooth] plot ({\x},{\x*\x + 2});
-      \draw[thick, cyan!50!black    ,domain=-2:2, smooth] plot ({\x},{\x*\x - 1});
+      \draw[thick, green!50!black   ,domain=-2:2, smooth] plot ({\x},{\x*\x + 3});
+      \draw[thick, gray!50!black    ,domain=-1.8:1.8, smooth] plot ({\x},{\x*\x + 4});
+
+
+      \node [small dot,pin=25:{$(1; 4)$}] at (1,4)  {};
+      \draw[fill=red!60!black] (1,4) circle (0.1);
     \end{tikzpicture}
 
     \caption{$y = x^2 + C$}
