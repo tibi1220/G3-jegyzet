@@ -1,0 +1,136 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.1 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Elsőrendű differenciálegyenletek}
+
+\jel{0}{0}
+\begin{itemize}
+  \item $F \left(x ; y ; y'\right)$
+        \tabto{2.5cm} – \tabto{3.1cm}
+        Implicit-alak
+
+  \item $y' = f \left(x ; y\right)$
+        \tabto{2.5cm} – \tabto{3.1cm}
+        Explicit-alak
+
+  \item $Q \left(x ; y\right) \differential y
+          + R \left(x ; y\right) \differential x$
+\end{itemize}
+
+
+
+\tetel{0}{0}{Cauchy-féle egzisztencia és unicitás tétele}
+
+Tegyügy fel, hogy az $f: \mathbb{R}^2 \rightarrow \mathbb{R}$
+$\left( x_0 ; y_0 \right)$ esetén létezik olyan
+$\left( x_0 ; y_0 \right) \in D$ tartomány, hogy
+\begin{itemize}
+  \item $f(x; y)$ folytonos $D$-n mindkét változójában,
+  \item $f'_y$ létezik, és korlátos $D$-n.
+\end{itemize}
+Ekkor $\exists!$ megoldása az $y' = f(x; y)$, $y(x_0) = y_0$
+kezdeti feltétellel ellátott differenciálegyenletek, azaz
+$\exists!$ $\varphi :
+  \left( x_0 - \varepsilon; \; x_0 + \varepsilon \right)
+  \rightarrow \mathbb{R}$ folytonosan differenciálható függvény,
+hogy $\varphi' (x) = f \left(x ; \varphi(x)\right)$
+$\forall x \in \left( x_0 - \varepsilon; \; x_0 + \varepsilon \right)$
+esetén teljesül, és $\varphi(x_0) = y_0$.
+
+
+
+\megj{1}{0}
+\begin{itemize}
+  \item A $D$ tartomány minden egyes pontján egyetlen megoldásgörbe megy át.
+  \item A tételben foglaltfeltételek nem szükségesek, de elégségesek.
+\end{itemize}
+
+
+
+\pelda{0}{20}
+
+
+
+\defi{1}{.33}{Lipschitz – feltétel}
+
+Az $f : \mathbb{R}^2 \rightarrow \mathbb{R}$ függvényre azt monjuk,
+hogy  a $D$ tartományon az $y$ változóra nézve kielégíti a
+Lipschitz-feltételt, ha $\exists$ olyan $M \in \mathbb{R}^+$, hogy
+$\forall$ $\left( x; y_0 \right)$ és $\left( x; y_1 \right)$ esetén
+\begin{equation*}
+  \left| f(x; y_0) - f(x; y_1) \right| \leq M \left| y_0 - y_1 \right|.
+\end{equation*}
+
+
+
+\tetel{1}{.33}{Picard – Lindelöf tétel}
+
+! $y' = f(x, y)$ adott és $D = I_1 \cross I_2$,
+ahol $I_1$ és $I_2$ nyílt intervallumok,
+$\left( x_0 \; ; \; y_0 \right) \in D$.
+Tegyük fel hogy:
+\begin{itemize}
+  \item $f$ mindkét változójában folytonos $D$-n,
+  \item $f$ kielégíti a Lipschitz-feltételt az $y$
+        változójára nézve.
+\end{itemize}
+Ekkor az $y' = f(x; y)$, $y(x_0) = y_0$ kezdeti feltétellel
+ellátott differenciálegyenletmek $\exists!$ megoldása, azaz
+$\exists \varepsilon > 0$, hogy $\varphi :
+  \left( x_0 - \varepsilon; \; x_0 + \varepsilon \right)
+  \rightarrow \mathbb{R}$-re teljesül, hogy $\varphi' (x)
+  = f \left(x ; \varphi(x)\right)$
+$\forall x \in \left( x_0 - \varepsilon; \; x_0 + \varepsilon \right)$
+esetén $\varphi(x_0) = y_0$.
+
+
+
+\tetel{1}{.33}{Peano – tétel}
+
+Ha az $f$ függvényről csak folytonosságot tesszük fel,
+akkor azt mondhatjuk, hogy van legalább egy integrálgörbéje,
+amely átmegy az $\left( x_0 ; y_0 \right)$ ponton.
+
+
+
+\megj{1}{0}
+\begin{itemize}
+  \item Látható tehát, hogy az $f$ folytonossága minden
+        Cauchy-feladat megoldásához elégséges, de az egyértelmű
+        megoldás létezéséhez nem.
+
+  \item Az egyértelmű megoldás létezéséhez az $f$
+        lipschitzessége a folytonossággal elégséges,
+        de nem szükséges feltétel.
+\end{itemize}
+
+
+
+\tetel{1}{.33}{Szukcesszív approximáció}
+
+Ha az $y = f(x; y)$ differenciálegyenletben lévő
+$f$ függvényre teljesül, hogy
+$\left| x - x_0 \right| < a \leq \infty$ és
+$\left| y - y_0 \right| < b \leq \infty$ tartományon
+korlátos és folytonos, továbbá eleget tesz a
+Lipschitz-feltételnek, akkor a
+\begin{equation*}
+  y_n
+  := \underbrace{y(x_0)}_{y_0}
+  + \int_{x_0}^x f\left(
+  t; y_{n-1}(t)
+  \right) \differential t
+\end{equation*}
+függvénysorozat $n \rightarrow \infty$ esetén az
+$y' = f(x; y)$, $y(x_0) = y_0$ differenciálegyenlet
+megoldásához konvergál az  $\left| x - x_0 \right|
+  < \min \left\{ a; b/M \right\}$  intervallumon.
+
+
+
+
+\end{document}
