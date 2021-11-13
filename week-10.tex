@@ -1,0 +1,252 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\defi{1}{.33}{Kompakt halmaz}
+
+A $H$ halmazt kompakt halmaznak mondjuk, ha $\forall$
+nyílt lefedésből kiválasztható véges sok nyílt halmaz,
+melynek uniója lefedi a $H$-t.
+
+
+
+\megj{1}{.33}{Nyílt és zárt halmazok}
+
+\begin{itemize}
+  \item Nyílt halmaz – Bármely halmazbeli pontnak $\exists$ olyan
+        $\varepsilon$ sugarú környezete, hogy az ebben lévő pontok
+        mindegyike a halmaz részei.
+
+  \item Zárt halmaz – Olyan halmaz, melynek komplementere nyílt
+\end{itemize}
+
+
+
+\allit{0}{.33}
+
+$D = I_1 \cross I_2 \cross \dots \cross I_n$, ahol
+$I_i$, $i \in \left\{1;2;\dots;n\right\}$ zárt halmaz
+kompakt.
+
+
+
+
+\tetel{1}{.33}
+
+! $y' = f(x; y)$, $y(x_0) = y_0$ differenciálegyenlet-rendszer, és
+$\left( x_0; y_0 \right) \in D$, ahol $D$ zárt, kompakt tégla (halmaz)
+$\mathbb{R}^2$-ben. Ekkor ha a $\varphi$ függvény megoldása a
+Cauchy-feladatnak, akkor $\varphi$ biztosan elhagyja a téglát.
+
+
+
+\defi{1}{.33}{Iránymező és vonalelemek}
+
+% \begin{minipage}[c]{.4\textwidth}
+%   \begin{figure}[H]
+%     \centering
+%     \begin{tikzpicture}[scale = .5]
+%       % \draw[very thin,color=gray] (-5.1,-5.1) grid (5.1,5.1);
+%       \draw[->] (-5.2,0) -- (5.2,0) node[right] {$x$};
+%       \draw[->] (0,-5.2) -- (0,5.2) node[above] {$y$};
+
+%       \draw[thick, cyan!50!black, domain=-4.8:-0.2, smooth, dashed] plot ({\x},{1/\x});
+%       \draw[thick, cyan!50!black, domain=0.2:4.8  , smooth, dashed] plot ({\x},{1/\x});
+
+%       \draw[thick, cyan!50!black, domain=-4.8:-0.4, smooth, dashed] plot ({\x},{2/\x});
+%       \draw[thick, cyan!50!black, domain=0.4:4.8  , smooth, dashed] plot ({\x},{2/\x});
+
+%       \draw[thick, cyan!50!black, domain=-4.8:-0.6, smooth, dashed] plot ({\x},{3/\x});
+%       \draw[thick, cyan!50!black, domain=0.6:4.8  , smooth, dashed] plot ({\x},{3/\x});
+
+%       \draw[thick, cyan!50!black, domain=-4.8:-0.8, smooth, dashed] plot ({\x},{4/\x});
+%       \draw[thick, cyan!50!black, domain=0.8:4.8  , smooth, dashed] plot ({\x},{4/\x});
+%     \end{tikzpicture}
+%   \end{figure}
+% \end{minipage}\hfill
+% \begin{minipage}[c]{.6\textwidth}
+% \end{minipage}
+
+A vonalelemek a megoldásgörbe adott pontbeli érintői.
+
+Ha az iránymező állandó, vagyis a megoldásagörbe
+állandó meredekségű, akkor izonklinákról beszélünk.
+
+
+
+\pelda{1}{20}
+
+
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.2 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Szeparábilisra visszavezethető differenciálegyenletek}
+
+\megj{1}{0}{Szeparábilis diffegyenlet megoldása}
+\begin{gather*}
+  y' = f(x)g(y)
+  \\
+  \int \frac{1}{g(y)} \differential y = \int f(x) \, \differential x
+\end{gather*}
+
+
+
+\defi{0}{.33}{Homogén függvény}
+
+Az $f : \mathbb{R}^2 \rightarrow \mathbb{R}$ függvényt
+az $x$ és $y$ változók $k$-adrendű homogén függvényének
+mondjuk, ha $f \left( tx; ty \right) = t^k f(x; y)$
+$\forall x;y \in D_f$ $\forall t \in \mathbb{R}$.
+
+\vspace{1.5em}
+
+
+\begin{minipage}[c]{.31\textwidth}
+  \begin{cbox}{gray}{1. eset}
+    \[
+      y' = f \left( ax + by + c \right)
+    \]
+    \vfill
+  \end{cbox}
+\end{minipage}\hfill
+\begin{minipage}[c]{.31\textwidth}
+  \begin{cbox}{gray}{2. eset}
+    \[
+      y' = f \left( \frac{y}{x} \right)
+    \]
+    Változóiban homogén
+    \vfill
+  \end{cbox}
+\end{minipage}\hfill
+\begin{minipage}[c]{.31\textwidth}
+  \begin{cbox}{gray}{3. eset}
+    \[
+      y' = \left( \frac{
+        a_1 x + b_1 y + c_1
+      }{
+        a_2 x + b_2 y + c_2
+      } \right)
+    \]
+  \end{cbox}
+\end{minipage}\hfill
+
+\begin{enumerate}
+  \item eset: Helyettesítéssel.
+        \begin{gather*}
+          y' = f \left( ax + by + c \right) \\[3mm]
+          u(x) = a x + b y + c \\
+          u'(x) = a + b y' \\
+          u' = a + b f(u) \\
+          \hspace{4em}
+          \frac{\differential u}{a + b f(u)}
+          = \differential x
+          \quad \rightarrow \quad {\textstyle\int \dots}
+        \end{gather*}
+
+  \item eset: Ha $k = 0$, akkor $t = 1/x$ helyettesítéssel.
+        \begin{gather*}
+          y' = f \left( \frac{y}{x}\right)
+          \quad \rightarrow \quad
+          u(x) = \frac{y(x)}{x}
+          \\[2mm]
+          \derivative{u}{x}
+          = \frac{y' \cdot x - y}{x^2}
+          = \frac{y' - y/x}{x}
+          = \frac{f(u) - u}{x}
+          \\[2mm]
+          \frac{\differential u}{f(u) - u}
+          = \frac{\differential x}{x}
+          \quad \rightarrow \quad {\textstyle\int \dots}
+        \end{gather*}
+
+
+  \item eset: További 2 esetre bomlik tovább.
+        \begin{enumerate}
+          \item Ha $c_1 = c_2 = 0$, vagyis $c_1^2 + c_2^2 = 0$.
+                \begin{equation*}
+                  y' = f \left(
+                  \frac{ a_1 x + b_1 y }{a_2 x + b_2 y}
+                  \right) = f \left(
+                  \frac{a_1 + b_1 (y / x)}{a_2 + b_2 (y / x)}
+                  \right) = f \left(
+                  \frac{y}{x}
+                  \right)
+                \end{equation*}
+
+          \item Ha $c_1 = c_2 \neq 0$, akkor helyettesítéssel.
+                \begin{equation*}
+                  \left.
+                  \begin{array}{l}
+                    x := \xi + p \\
+                    y := \eta + q
+                  \end{array}
+                  \right\}
+                  \rightarrow
+                  \quad
+                  \derivative{y}{x} = \derivative{\eta}{\xi}
+                  \quad \left( p; q \in \mathbb{R} \right)
+                \end{equation*}
+                \begin{equation*}
+                  y' = f \left(
+                  \frac{
+                    a_1 \xi + b_1 \eta + a_1 p + b_1 q + c_1
+                  }{
+                    a_2 \xi + b_2 \eta + a_2 p + b_2 1 + c_2
+                  }
+                  \right)
+                \end{equation*}
+
+                \vspace{1em}
+                \begin{multicols}{2}
+                  \begin{enumerate}
+                    \item Ha $\det\left[\begin{smallmatrix}
+                                a_1 & b_1 \\ a_2 & b_2
+                              \end{smallmatrix} \right] \neq 0$
+
+                          \vspace{.66em}
+                          Határozzuk meg $p$ és $q$ értékét úgy,
+                          hogy $a_1 p + b_1 q + c_1 = 0$ és
+                          $a_2 p + b_2 q + c_2 = 0$ feltételek
+                          teljesüljenek. Ekkor:
+                          \[
+                            y' =  f \left(
+                            \frac{a_1 \xi + b_1 \eta}{a_2 \xi + b_2 \eta}
+                            \right)
+                          \]
+                          Így már változóiban homogén,
+                          szeparábilisre visszavezethető.
+
+                    \item Ha $\det\left[\begin{smallmatrix}
+                                a_1 & b_1 \\ a_2 & b_2
+                              \end{smallmatrix} \right] = 0$
+
+                          \vspace{.66em}
+                          Ebből következik, hogy $a_1 b_2 = a_2 b_1$,
+                          ekkor $a_2 / a_1 = b_2 / b_1 = k$.
+
+                          Legyen $a_2 = k a_1$ és $b_2 = k b_1$,
+                          ekkor:
+                          \[
+                            y' = f \left(
+                            \frac{
+                              a_1 x + b_1 y + c_1
+                            }{
+                              k a_1 x + k b_2 y + c_2
+                            }
+                            \right)
+                          \]
+                          Így már változóiban homogén,
+                          szeparábilisre visszavezethető.
+                  \end{enumerate}
+                \end{multicols}
+        \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}

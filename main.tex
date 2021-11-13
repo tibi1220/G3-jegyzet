@@ -13,12 +13,24 @@
 \usepackage{float}
 \usepackage{icomma}
 \usepackage{tabto}
+\usepackage{multicol}
 \usepackage[
   colorlinks=true,
   linkcolor=black,
   % pdfborderstyle={/S/U/W 1},
 ]{hyperref}
 
+\usepackage{tcolorbox}
+\newtcolorbox{cbox}[2]{
+  colback=#1!5!white,
+  colframe=#1!75!black,
+  fonttitle=\bfseries,
+  title={\centering #2}
+}
+\newtcolorbox{ebox}[1]{
+  colback=#1!5!white,
+  colframe=#1!75!black
+}
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
@@ -54,7 +66,10 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \setlength{\headheight}{20pt}
 \pagestyle{fancy}
-\cfoot{\thepage\ / \pageref{LastPage}}
+\rfoot{\thepage\ / \pageref{LastPage}}
+\lhead{Matematika G3 (BMETE94BG03)}
+\lfoot{\emph{Készítette:} Sándor Tibor}
+\cfoot{}
 
 \usepackage{xparse}
 \DeclareDocumentCommand\defi{ m m g }{
@@ -181,6 +196,7 @@
 \tableofcontents
 \pagebreak
 
+% Vektoranalízis
 \subfile{week-01.tex}
 \subfile{week-02.tex}
 \subfile{week-03.tex}
@@ -190,9 +206,12 @@
 \pagebreak
 \subfile{week-06.tex}
 
+% Diffegyenletek
 \pagebreak
 \subfile{week-08.tex}
+\pagebreak
 \subfile{week-09.tex}
+\subfile{week-10.tex}
 
 
 \end{document}
@@ -204,4 +223,3 @@
 % \usepackage{cancel}
 % \usepackage{empheq}
 % \usepackage{enumitem}
-% \usepackage{multicol}
