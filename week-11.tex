@@ -1,0 +1,226 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.3 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Elsőrendű lineáris differenciálegyenletek}
+
+Az $a(x) y' + b(x) y + c(x)$ alakú differenciálegyenletet,
+ahol $a;b;c : I \subset \mathbb{R} \rightarrow \mathbb{R}$,
+$a(x) \not\equiv 0$
+egyváltozós, valós, folytonos függvények, elsőrenű
+lineáris diffegyenletnek nevezzük.
+
+\vspace{.33em}
+Gyakran a következő alakban írjuk del őket:
+\begin{equation*}
+  y' + p(x)y = q(x)
+\end{equation*}
+
+Megoldásuk:
+\begin{itemize}
+  \item Homogén rész
+        \tabto{3cm} – \tabto{3.6cm}
+        Ha $q(x) \equiv 0$,
+        akkor az egyenlet az alábbi alakra redukálódik:
+        \begin{gather*}
+          y' + p(x)y = 0
+          \\
+          \frac{1}{y} \, \differential y = -p(x) \, \differential x
+          \\
+          \ln y = -\int p(x) \, \differential x + \ln C
+          \\
+          \quad\quad\quad
+          y_h = C e^{-\int p(x) \, \differential x}
+          \quad C \in \mathbb{R}
+        \end{gather*}
+
+  \item Ingomogén rész
+        \tabto{3.1cm} – \tabto{3.6cm}
+        Ha $q(x) \not\equiv 0$,
+        akkor ezt zavarófüggvénynek nevezzük.
+        % \tabto{3.6cm}
+
+        A megoldás menete a következő:
+        \begin{enumerate}
+          \item Megoldjuk a homogén egyenletet
+          \item $y_h(x) = c Y(x)$, ahol $Y(x)
+                  = e^{-\int p(x) \, \differential x} $
+          \item Konstans variáció (Lagrange-féle módszer) alkalmazása:
+                \begin{align*}
+                  y_p(x)  & = c(x)Y(x)
+                  \\
+                  y'_p(x) & = c'(x)Y(x) + c(x)Y'(x)
+                \end{align*}
+                Visszahelyettesítünk az ereddeti egyenletbe:
+                \begin{gather*}
+                  y'_p(x) + p(x)y_p(x) = q(x)
+                  \\
+                  c'(x)Y(x) + c(x)Y'(x) + p(x)c(x)Y(x) = q(x)
+                  \\
+                  c(x) \underbrace{\left(Y'(x) + p(x)Y(x) \right)}_{
+                  = 0 \text{, homogén egyenlet}
+                  } + c'(x)Y(x) = q(x)
+                \end{gather*}
+                $c(x)$ meghatározása:
+                \begin{gather*}
+                  c'(x) = \frac{q(x)}{Y(x)}
+                  \\
+                  c(x) = \int \frac{q(x)}{Y(x)} \,\differential x
+                \end{gather*}
+                Az általános megoldás a homogén és partikuláris megoldás
+                összegeként áll elő:
+                \begin{equation*}
+                  y_\text{ált}(x)
+                  = y_h(x) + y_p(x)
+                  = c Y(x) + c(x) Y(x)
+                  = e^{-\int p(x) \, \differential x} \left(
+                  \int \frac{q(x)}{Y(x)} \, \differential x + k
+                  \right)
+                \end{equation*}
+        \end{enumerate}
+\end{itemize}
+
+
+
+\megj{0}{.33}
+
+Partikuláris megoldást próbafüggvény-módszerrel
+is kereshetünk, erről később lesz szó.
+
+
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.4 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Bernoulli-féle differenciálegyenletek}
+
+Az olyan egyenleteket, melyek
+\begin{equation*}
+  y'(x) + p(x)y(x) = q(x)y^n(x)
+\end{equation*}
+
+alakban írhatóak fel, és
+$p; q : I \subset \mathbb{R} \rightarrow \mathbb{R}$
+folytonos függvények, valamint $n \not\in \left\{0; 1\right\}$,
+Bernoulli-féle diffegyenleteknek nevezzük. Ezek az egyenletek
+nem lineárisak, de az alábbi helyettesítéssel lineárissá tehetőek:
+\begin{gather*}
+  z(x) = y^{1-n}(x)
+  \\
+  z'(x) = (1 - n) y^{-n} y'
+  \\
+  y^{-n} y' = \frac{z'}{1-n}
+\end{gather*}
+Az eredeti egyenlet mindkét oldalát osszuk el $y^n$-nel,
+majd végezzük el a helyettesítést:
+\begin{gather*}
+  y^{-n} y' + p(x) y^{1 - n} = q(x)
+  \\
+  \frac{z'(x)}{1 - n} + p(x) z(x) = q(x)
+\end{gather*}
+Ez már $z$-re lineáris, megoldható.
+
+
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.5 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Ricatti-féle differenciálegyenletek}
+
+A Ricatti-típusú diffegyenletek elsőrendű, másodfokú,
+nemlineáris egyenletek, amelyek az alábbi alakban
+írhatóak fel:
+\begin{equation*}
+  y'(x) + p(x)y(x) = q(x)y^2(x) + h(x)
+\end{equation*}
+Szükségünk van egy partikuláris megoldásra.
+Ennek segítségével helyettesítsünk az alábbiak szerint:
+\begin{itemize}
+  \item $y(x) = \dfrac{1}{z(x)} + y_p(x)$
+        \tabto{3.9cm} – \tabto{4.4cm}
+        Így már $z$-re lineáris.
+
+  \item $y(x) = z(x) + y_p(x)$
+        \tabto{3.9cm} – \tabto{4.4cm}
+        Bernoulli-típusú lesz.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+%-------------------------------- Subsection 2.5 -------------------------------
+%-------------------------------------------------------------------------------
+\subsection{Egzakt differenciálegyenletek}
+
+A $P(x;y) \,\differential x + Q(x;y) \,\differential y = 0$,
+diffegyenletet – ahol $P;Q : \mathbb{R}^2 \rightarrow
+  \mathbb{R}$ folytonosan differenciálható függvények
+– egzaktnak nevezzük, ha teljesül az alábbi feltétel:
+\begin{equation*}
+  \partialderivative{P(x;y)}{y} = \partialderivative{Q(x;y)}{x}
+\end{equation*}
+Ekkor $\exists F : \mathbb{R}^2 \rightarrow \mathbb{R}$,
+melyre igaz, hogy:
+\begin{gather*}
+  \partialderivative{F(x;y)}{x} = P(x;y)
+  \quad \text{és} \quad
+  \partialderivative{F(x;y)}{y} = Q(x;y)
+  \\
+  \partialderivative{F(x;y)}{x}   \, \differential y
+  + \partialderivative{F(x;y)}{y} \, \differential x
+  = 0
+  \\
+  F(x;y) = C
+\end{gather*}
+Előfordulhat, hogy a $P(x;y) \,\differential x
+  + Q(x;y) \,\differential y = 0$ diffegyenlet
+nem egzakt, de integráló tényező segítségével
+egzakttá tehető. Tegyük fel, hogy $\exists M :
+  \mathbb{R}^2 \rightarrow \mathbb{R}$, hogy
+$M(x;y) \, P(x;y) \, \differential x + M(x;y)
+  \, Q(x;y) \, \differential y = 0$ diffegyenlet
+már egzakt, azaz:
+\begin{gather*}
+  \partialderivative{MP}{y} = \partialderivative{MQ}{x}
+  \\[.33em]
+  \partialderivative{M}{y} P
+  + M \partialderivative{P}{y}
+  = \partialderivative{M}{x} Q
+  + M \partialderivative{Q}{x}
+  \\[.33em]
+  Q \partialderivative{M}{x}
+  - P \partialderivative{M}{y}
+  + M \left(
+  \partialderivative{Q}{x}
+  - \partialderivative{P}{y}
+  \right) = 0
+\end{gather*}
+Tegyük fel, hogy $M$ egyváltozós: $!M(x)$, ekkor
+a diffegyenlet az alábbi alakra redukálódik:
+\begin{equation*}
+  Q \partialderivative{M}{x}
+  + M \left(
+  \partialderivative{Q}{x}
+  - \partialderivative{P}{y}
+  \right) = 0
+\end{equation*}
+Ez már $M$-re szeparábilis:
+\begin{gather*}
+  \frac{1}{M} \, \differential M
+  = \frac{1}{Q} \left(
+  \partialderivative{P}{y}
+  - \partialderivative{Q}{x}
+  \right) \differential x
+  \\[.33em]
+  \ln M
+  = \int \frac{P_y' - Q_x'}{Q} \, \differential x + \ln C
+  \\[.33em]
+  M(x) = C e^{\int \frac{P_y' - Q_x'}{Q} \, \differential x}
+\end{gather*}
+Itt $C$ tetszőlegesen megválasztható, ezért
+célszerű $1$-nek választani.
+
+\end{document}
