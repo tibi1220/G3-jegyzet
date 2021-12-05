@@ -11,7 +11,7 @@
           \tabto{5.35cm} – \tabto{6cm} implicit alak
 
     \item $y^{(n)} = f(x;y;y';\dots;y^{(n-1)})$
-          \tabto{5.35cm} – \tabto{6cm} emplicit alak
+          \tabto{5.35cm} – \tabto{6cm} explicit alak
   \end{itemize}
 
   Változók alapján lehet:
@@ -26,7 +26,7 @@
   A differenciálegyenlet rendje a legmagasabb derivált rendje
   \\[2mm]
   A diffegyenlet lineáris, ha $y$ deriváltjai csak az első
-  hatványon szerepelnek, és szotzataik nem szerepelnek.
+  hatványon szerepelnek, és szorzataik nem szerepelnek.
   Ekkor az alábbi alakban felírhatóak:
   \[
     a_n(x) y^{(n)}
@@ -52,7 +52,7 @@
   és $|y-y_0|<b\leq\infty$ tartományon korlátos és
   folytonos, akkor $n \rightarrow \infty$ esetén $y_n$
   függvénysorozat az eredeti diffegyenlet megoldásához
-  konvergál az $|x - x_0| < \min \{a; b/M\}$ intervallumon.
+  konvergál az $|x - x_0| < \min \{a; b/L\}$ intervallumon.
   \\[2mm]
   \emph{\underline{Példa:}}$\quad f(x; y) = y \quad y(0) = 1$
   \begin{alignat*}{3}
@@ -109,7 +109,7 @@
   \emph{\underline{Szétválaszthatóra visszavezethető esetek:}}
   \begin{alignat*}{3}
     y'
-          & = f(x/y)
+          & = f(y/x)
     \quad &                  & \rightarrow \quad
           &                  & u = y/x
     \\
@@ -141,7 +141,7 @@
   összegeként adódik:
   \begin{itemize}
     \item A homogén megoldást meghaphatjuk, ha megoldjuk az
-          $y' = p(x)y = 0$ egyenletet a tanult módszerek alapján.
+          $y' + p(x)y = 0$ egyenletet a tanult módszerek alapján.
 
     \item Az inhomogén megoldást konstans variálással
           kaphatjuk meg. Ez azt jelenti, hogy a homogén megoldásban
@@ -214,11 +214,11 @@
   \emph{\underline{Megoldás:}}
   \quad Ismerni kell egy $y_p$ partikuláris megoldást.
   \begin{itemize}
-    \item $y(x) = y(x)_p + z(x)$
+    \item $y(x) = y_p(x) + z(x)$
           \tabto{4.4cm} – \tabto{5cm}
           Bernoulli-típusúra visszavezethető
 
-    \item $y(x) = y(x)_p + 1/z(x)$
+    \item $y(x) = y_p(x) + 1/z(x)$
           \tabto{4.4cm} – \tabto{5cm}
           $z$-re lineáris
   \end{itemize}
@@ -270,7 +270,7 @@
     = 0
   \]
 
-  \emph{\underline{Megoldási módszer:}} \quad Próbafüggvény módszer
+  \emph{\underline{Megoldási módszer:}} \quad Próbafüggvény-módszer
   \\[2mm]
   Legyen $y = e^{\lambda x}$, $y' = \lambda e^{\lambda x}$,
   $\dots$, $y^{(n)} = \lambda^n e^{\lambda x}$. Ekkor az
@@ -402,9 +402,9 @@
 
 
         \draw[red!40!gray, ultra thick, -to] (0, 3.75) -- (0, 2.5)
-        node [midway, right, black] {$p_{be}$}; % \dot{V}_{be}
+        node [midway, black] {$p_{be} \;\;\; \dot{V}_{be}$}; % \dot{V}_{be}
         \draw[red!40!gray, ultra thick, -to] (0, -0.25) -- (0, -1.5)
-        node [midway, right, black] {$p_{ki}$}; % \dot{V}_{ki}
+        node [midway, black] {$p_{ki} \;\;\; \dot{V}_{ki}$}; % \dot{V}_{ki}
 
 
         \node[] at (0, 1) {$V_0$};
@@ -428,7 +428,7 @@
     \end{gather*}
 
     Ha a bejövő és a kiáramló anyagmennyiség nem egyezik meg,
-    azaz $\dot{V}_{be} \neq \dot{V}_ki$, ekkor:
+    azaz $\dot{V}_{be} \neq \dot{V}_{ki}$, ekkor:
     \[
       x_{ki}(t) = \frac{\dot{V}_2}{V_0 + (\dot{V}_{be} - \dot{V}_{ki})t} \; x(t)
     \]
