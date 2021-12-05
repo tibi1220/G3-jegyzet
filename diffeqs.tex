@@ -384,15 +384,30 @@
     \begin{figure}[H]
       \centering
       \begin{tikzpicture}
-        \draw[ultra thick] (-3, 3) -- (-3, 0) -- (-0.1, 0) -- (-0.1, -0.5);
-        \draw[ultra thick] (3, 3) -- (3, 0) -- (0.1, 0) -- (0.1, -0.5);
+        \draw[very thick] (-3, 3) -- (-3, 0) -- (-0.1, 0) -- (-0.1, -0.5);
+        \draw[very thick] (3, 3) -- (3, 0) -- (0.1, 0) -- (0.1, -0.5);
 
-        \draw[snake=coil, segment aspect=0, ultra thick, cyan!40!gray] (-3,2)  -- ++(6,0);
+        \filldraw[snake=coil, segment aspect=0, very thick, cyan!40!gray, fill=cyan!20] (-3, 2)
+        -- ++(6, 0)
+        [snake=none, black, fill=cyan!20]-- ++(0,-2)
+        -- ++(-2.9, 0)
+        -- ++(0,-0.5)
+        -- ++(-0.2, 0)
+        -- ++(0,0.5)
+        -- ++(-2.9, 0)
+        -- ++(0, 2)
+        ;
+        \draw[snake=coil, segment aspect=0, ultra thick, cyan!40!gray] (-3,2) -- ++(6,0);
+        \draw[cyan!40!gray!5!white, ultra thick] (0.2, -0.5) -- ++(-.4, 0);
+
 
         \draw[red!40!gray, ultra thick, -to] (0, 3.75) -- (0, 2.5)
         node [midway, right, black] {$p_{be}$}; % \dot{V}_{be}
         \draw[red!40!gray, ultra thick, -to] (0, -0.25) -- (0, -1.5)
         node [midway, right, black] {$p_{ki}$}; % \dot{V}_{ki}
+
+
+        \node[] at (0, 1) {$V_0$};
       \end{tikzpicture}
     \end{figure}
   \end{minipage}\hfill
@@ -400,7 +415,7 @@
     Ha a bejövő és a kiáramló anyagmennyiség megegyezik
     ($\dot{V}_{e} \equiv \mathrm{const}$), akkor:
     \[
-      x_{be} = \dot{V}_{e} \cdot p_1
+      x_{be} = \dot{V}_{e} \cdot p_{be}
       \quad \quad \quad
       x_{ki}(t) = \frac{\dot{V}_e}{V_0} \; x(t)
     \]
@@ -413,11 +428,9 @@
     \end{gather*}
 
     Ha a bejövő és a kiáramló anyagmennyiség nem egyezik meg,
-    azaz $\dot{V}_{be} \neq \dot{V}_ki$, akkor:
+    azaz $\dot{V}_{be} \neq \dot{V}_ki$, ekkor:
     \[
-      x_{be} = \dot{V}_{1} \cdot p_1
-      \quad \quad
-      x_{ki}(t) = \frac{\dot{V}_2}{V_0 + (V_1 - V_2)t} \; x(t)
+      x_{ki}(t) = \frac{\dot{V}_2}{V_0 + (\dot{V}_{be} - \dot{V}_{ki})t} \; x(t)
     \]
   \end{minipage}
 \end{cbox}
