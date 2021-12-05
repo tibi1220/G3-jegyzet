@@ -1,0 +1,427 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\subsection{Differenciálegyenletek összefoglaló}
+
+\begin{cbox}{yellow!40!gray}{Diffegyenletek osztályozása}
+  Alakjuk lehet:
+  \begin{itemize}
+    \item $F(x;y;y';\dots;y^{(n)}) = 0$
+          \tabto{5.35cm} – \tabto{6cm} implicit alak
+
+    \item $y^{(n)} = f(x;y;y';\dots;y^{(n-1)})$
+          \tabto{5.35cm} – \tabto{6cm} emplicit alak
+  \end{itemize}
+
+  Változók alapján lehet:
+  \begin{itemize}
+    \item egyváltozós
+          \tabto{2.6cm} – \tabto{3.2cm} közönséges
+
+    \item többváltozós
+          \tabto{2.6cm} – \tabto{3.2cm} parciális
+  \end{itemize}
+
+  A differenciálegyenlet rendje a legmagasabb derivált rendje
+  \\[2mm]
+  A diffegyenlet lineáris, ha $y$ deriváltjai csak az első
+  hatványon szerepelnek, és szotzataik nem szerepelnek.
+  Ekkor az alábbi alakban felírhatóak:
+  \[
+    a_n(x) y^{(n)}
+    + a_{n-1}(x) y^{(n-1)} y^{(n-1)}
+    + \dots
+    + a_1(x) y'
+    + a_0(x) y
+    = f(x)
+  \]
+\end{cbox}
+
+\begin{cbox}{red!40!gray}{Szukcesszív approximáció}
+  \[
+    y_n := y(x_0) + \int_{x_0}^x f \left(
+    t; y_{n-1}(t)
+    \right) \differential t
+  \]
+
+  A módszert $n$ lépéses közelítésként használjuk.
+  \\[2mm]
+  Ha $f$ lipschitzes $\left(|f(x; y_1) + f(x; y_2)| \leq
+    L |y_1 - y_2|\right)$, továbbá $|x-x_0|<a\leq\infty$
+  és $|y-y_0|<b\leq\infty$ tartományon korlátos és
+  folytonos, akkor $n \rightarrow \infty$ esetén $y_n$
+  függvénysorozat az eredeti diffegyenlet megoldásához
+  konvergál az $|x - x_0| < \min \{a; b/M\}$ intervallumon.
+  \\[2mm]
+  \emph{\underline{Példa:}}$\quad f(x; y) = y \quad y(0) = 1$
+  \begin{alignat*}{3}
+    y_1
+     & = 1 + \int_0^x f(t; 1) \differential t
+     &                                                & = 1 + \int_0^x 1 \, \differential t
+     &                                                & = 1 + x
+    \\
+    y_2
+     & = 1 + \int_0^x f(t; 1+t) \differential t
+     &                                                & = 1 + \int_0^x 1+t \, \differential t
+     &                                                & = 1 + x + x^2/2
+    \\
+    y_3
+     & = 1 + \int_0^x f(t; 1+t+t^2/2) \differential t
+     &                                                & = 1 + \int_0^x 1+t+t^2/2 \, \differential t
+     &                                                & = 1 + x + x^2/2 + x^3/6
+    \\
+    \vdots
+     &
+    \\
+    y_\infty
+     & = \sum_{i=0}^\infty \frac{x^i}{i!} = e^x
+  \end{alignat*}
+\end{cbox}
+
+\begin{cbox}{cyan!40!gray}{Szöveges feladatok I}
+  \emph{\underline{Newton lehűlési törvénye:}}
+  $\quad \dot{x} = \alpha(x - x_k)$
+  \begin{gather*}
+    \frac{\differential x}{x - x_k} = \alpha \, \differential t
+    \\
+    x(t) = x_k + c \cdot e^{\alpha t}
+  \end{gather*}
+  % \emph{\underline{Oldódási feladat:}}
+
+  % TBD
+\end{cbox}
+
+\begin{cbox}{magenta!40!gray}{Elsőrendű, szétválasztható (szeparábilis) diffegyenletek}
+  \[
+    y'(x) = f(x)g(y)
+  \]
+
+  \emph{\underline{Megoldási menet:}}
+  \[
+    \derivative{y}{x} = f(x)g(y)
+    \quad \rightarrow \quad
+    \frac{\differential y}{g(y)} = f(x) \, \differential x
+    \quad \rightarrow \quad
+    \int \frac{\differential y}{g(y)} = \int f(x) \, \differential x
+  \]
+
+  \emph{\underline{Szétválaszthatóra visszavezethető esetek:}}
+  \begin{alignat*}{3}
+    y'
+          & = f(x/y)
+    \quad &                  & \rightarrow \quad
+          &                  & u = y/x
+    \\
+    y'
+          & = f(ax + by + c)
+    \quad &                  & \rightarrow \quad
+          &                  & u = ax + by + c
+  \end{alignat*}
+
+  \emph{\underline{Példa:}}$\quad (2x+1)y'-3y=0$
+  \begin{gather*}
+    y' = \frac{3y}{2x + 1} = \derivative{y}{x}
+    \\
+    \int \frac{\differential y}{3y} = \int \frac{\differential x}{2x + 1}
+    \\
+    \frac{1}{3} \ln |y| = \frac{1}{2} \ln |2x + 1| + K
+    \\
+    y = C(2x + 1)^{3/2}
+  \end{gather*}
+\end{cbox}
+
+\begin{cbox}{magenta!40!cyan}{Elsőrendű, lineáris diffegyenletek}
+  \[
+    y' + p(x) y = q(x)
+  \]
+  Ha $q(x) \equiv 0 $, akkor az egyenlet homogén, egyébként inhomogén.
+  \\[2mm]
+  Az általános megoldás a homogén és inhomogén megoldás
+  összegeként adódik:
+  \begin{itemize}
+    \item A homogén megoldást meghaphatjuk, ha megoldjuk az
+          $y' = p(x)y = 0$ egyenletet a tanult módszerek alapján.
+
+    \item Az inhomogén megoldást konstans variálással
+          kaphatjuk meg. Ez azt jelenti, hogy a homogén megoldásban
+          lévő konstanst $x$-től függőnek vesszük, majd megoldjuk
+          az egyenletet.
+  \end{itemize}
+\end{cbox}
+
+\begin{cbox}{red!60!green!80!gray}{Hiányos másodrendű egyenletek}
+  Az $y'' = f(x; y; y')$ hiányos, ha $x$, $y$, vagy $y'$
+  hiányzik az egyenletből.
+  \begin{enumerate}
+    \item $y'' = f(x)$
+          \tabto{2.65cm} $\rightarrow$ \tabto{3.65cm}
+          $y$ és $y'$ hiányos, kétszer integrálunk
+
+    \item $y'' = f(x; y')$
+          \tabto{2.65cm} $\rightarrow$ \tabto{3.65cm}
+          $p(x) = y'(x)$ helyettesítés,
+
+          \tabto{3.65cm}
+          így $p$-re elsőrendű
+
+    \item $y'' = f(y; y')$
+          \tabto{2.65cm} $\rightarrow$ \tabto{3.65cm}
+          $P(y) = y'$ helyettesítés,
+
+          \tabto{3.65cm}
+          ekkor $y'' = \partial_y P \cdot y' = P'_y + P$,
+
+          \tabto{3.65cm}
+          így $P$-re elsőrendű, szeparábilis
+  \end{enumerate}
+\end{cbox}
+
+\begin{cbox}{cyan!20!black}{Egzakt diffegyenletek}
+  \[
+    P(x;y) \, \differential x + Q(x;y) \, \differential y = 0
+  \]
+  A fenti egyenlet egzakt, ha $\exists F(x;y)$, hogy
+  $\partial_x F = P$ és $\partial_y F = Q$.
+
+  Ekkor $F(x; y) = C$, $\partial_y P = \partial_x Q$
+  teljsül. Ezt az $F$ függvényt keressük.
+  \\[2mm]
+  Előfordulhat azonban, hogy nem egzakt, vagyis
+  $\partial_y P \neq \partial_x Q$, de $\exists M$
+  egyváltozós multipli-kátor, mellyel egzakttá tehető.
+  \begin{align*}
+    \ln M(x)
+     & = \int \frac{\partial_y P - \partial_x Q}{Q} \, \differential x
+    \\
+    \ln M(y)
+     & = \int \frac{\partial_x Q - \partial_y P}{P} \, \differential x
+  \end{align*}
+\end{cbox}
+
+\begin{cbox}{yellow!80!black}{Bernoulli-féle diffegyenletek}
+  \[
+    y' + a(x)y = b(x)y^\alpha
+  \]
+  \emph{\underline{Megoldás:}}
+  $\quad u = q^{1-\alpha}$ helyettesítéssel
+\end{cbox}
+
+\begin{cbox}{cyan!80!black}{Ricatti-féle diffegyenletek}
+  \[
+    a(x) y' + b(x) y + c(x) y^2 = r(x)
+  \]
+  \emph{\underline{Megoldás:}}
+  \quad Ismerni kell egy $y_p$ partikuláris megoldást.
+  \begin{itemize}
+    \item $y(x) = y(x)_p + z(x)$
+          \tabto{4.4cm} – \tabto{5cm}
+          Bernoulli-típusúra visszavezethető
+
+    \item $y(x) = y(x)_p + 1/z(x)$
+          \tabto{4.4cm} – \tabto{5cm}
+          $z$-re lineáris
+  \end{itemize}
+\end{cbox}
+
+\begin{cbox}{red!40!gray}{Lineáris differenciálegyenletek}
+  \[
+    y^{(n)}
+    + a_{n-1}(x) y^{(n-1)} y^{(n-1)}
+    + \dots
+    + a_1(x) y'
+    + a_0(x) y
+    = f(x)
+  \]
+  Ha $f(x) = 0$, akkor homogén, egyébként inhomogén.
+  \\[2mm]
+  A homogén általános megoldás alakja:
+  \[
+    y(x)
+    = c_1 y_1(x)
+    + c_2 y_2(x)
+    + \dots
+    + c_n y_n(x)
+  \]
+  Ez az $n$ darab függvény az integrálásra és
+  deriválásra vektorteret alkot. Lineáris függetlenségüket
+  A Wronsky-determimáns segítségével ellenőrizhetjük:
+  \[
+    \rmat{W} = \begin{bmatrix}
+      y_1         & y_2         & \dots  & y_n         \\
+      y_1'        & y_2'        & \dots  & y_n'        \\
+      \vdots      & \vdots      & \ddots & \vdots      \\
+      y_1^{(n-1)} & y_2^{(n-1)} & \dots  & y_n^{(n-1)} \\
+    \end{bmatrix}
+  \]
+  Ha $\det \rmat{W} \neq 0$, akkor lineárisan függetlenek,
+  $\left\{ y_1; y_2; \dots; y_n \right\}$ adják a diffegyenlet
+  alaprendszerét. Az alaprendszer valamennyi függvénye, és
+  lineáris kombinációjuk is megoldás lesz.
+\end{cbox}
+
+\begin{cbox}{green!30!cyan}{Állandó együtthatós, homogén, lineáris differenciálegyenletek}
+  \[
+    y^{(n)}
+    + a_{n-1} y^{(n-1)} y^{(n-1)}
+    + \dots
+    + a_1 y'
+    + a_0 y
+    = 0
+  \]
+
+  \emph{\underline{Megoldási módszer:}} \quad Próbafüggvény módszer
+  \\[2mm]
+  Legyen $y = e^{\lambda x}$, $y' = \lambda e^{\lambda x}$,
+  $\dots$, $y^{(n)} = \lambda^n e^{\lambda x}$. Ekkor az
+  alábbi egyenletet kapjuk:
+  \[
+    \lambda^n
+    + a_{n-1} \lambda^{n-1}
+    + \dots
+    + a_{1} \lambda^{1}
+    + a_{0}
+    = 0
+  \]
+  Ez $\lambda$-ra nézve $n$-edfokú polinom, melynek
+  $n$ darab megoldása van, melyek között páros számú
+  komplex gyök is lehet.
+  \begin{itemize}
+    \item $\lambda_1 \in \mathbb{R}$, egyszeres
+
+          $y_1(x) = e^{\lambda_1 x}$
+
+    \item $\lambda_1 = \lambda_2 = \dots = \lambda_s \in \mathbb{R}$,
+          többszörös, akkor belső rezonancia áll fenn
+
+          $y_1 = e^{\lambda_1 x}$,
+          $y_2 = x e^{\lambda_1 x}$,
+          $\dots$,
+          $y_s = x^{s-1} e^{\lambda_1 x}$
+
+    \item $\lambda_{1,2} = \alpha \pm i\beta$, egyszeres komplex gyökpár
+
+          $y_1 = e^{\alpha x} \cos (\beta x)$
+
+          $y_2 = e^{\alpha x} \sin (\beta x)$
+
+    \item $\lambda_{2s} \in \mathbb{C}$, $s$-szeres multiplicitású
+
+          $y_1 = e^{\alpha x} \cos (\beta x)$
+          \tabto{4cm}
+          $y_3 = x y_1$
+          \tabto{7cm}
+          $y_5 = x^2 y_1$
+          \tabto{10cm}
+          $\dots$
+          \tabto{11.5cm}
+          $y_{2s-1} = x^{s-1} y_1$
+
+          $y_2 = e^{\alpha x} \sin (\beta x)$
+          \tabto{4cm}
+          $y_4 = x y_4$
+          \tabto{7cm}
+          $y_6 = x^2 y_2$
+          \tabto{10cm}
+          $\dots$
+          \tabto{11.5cm}
+          $y_{2s} = x^{s-1} y_2$
+  \end{itemize}
+\end{cbox}
+
+\begin{cbox}{green!60!blue}{Állandó együtthatós, inhomogén, lineáris differenciálegyenletek}
+  \[
+    y = y_\mathrm{h} + y_\mathrm{ih}
+  \]
+
+  \emph{\underline{Megoldási módszer:}} \quad
+  Megoldást a gerjesztésnek megfelelő
+  formában kell keresni.
+  \begin{itemize}
+    \item $f(x) = e^x$
+          \tabto{4.6cm} – \tabto{5.2cm}
+          $y_\mathrm{ih} = A e^x$
+
+    \item $f(x) = p(x)$, polinom
+          \tabto{4.6cm} – \tabto{5.2cm}
+          $y_\mathrm{ih} = A_0 + A_1 x + A_2 x^2 + \dots$
+
+    \item $f(x)$ trigonometrikus
+          \tabto{4.6cm} – \tabto{5.2cm}
+          $y_\mathrm{ih} = A \cos (\beta x) + B \sin (\beta x)$
+  \end{itemize}
+\end{cbox}
+
+\begin{cbox}{magenta!30!red}{Euler-féle diffegyenletek}
+  \[
+    a_2 y'' + \frac{a_1}{x} y' + \frac{a_0}{x} y = 0
+  \]
+  \emph{\underline{Megoldási módszer:}}
+  \quad $x = e^z$ helyettesítéssel
+  \quad ($\dot{y} = \partial_z y$)
+  \[
+    y'  = \frac{\dot{y}}{e^{z}}
+    \quad\quad\quad
+    y'' = \frac{\ddot{y} - \dot{y}}{e^{2z}}
+  \]
+\end{cbox}
+
+\begin{cbox}{green!30!red}{Másodrendű, változó együtthatós diffegyenletek}
+  \[
+    a_2(x) y'' + a_1(x) y' + a_0(x) y = 0
+  \]
+  Ha ismert az egyik megoldás, akkor konstansvariációval
+  meg tudjuk adni a másikat.
+  \[
+    y_2 = c(x) y_1
+  \]
+\end{cbox}
+
+\begin{cbox}{cyan!40!gray}{Szöveges feladatok II}
+  \emph{\underline{Általános keverési feladat:}}
+
+  \begin{minipage}[c]{.5\textwidth}
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}
+        \draw[ultra thick] (-3, 3) -- (-3, 0) -- (-0.1, 0) -- (-0.1, -0.5);
+        \draw[ultra thick] (3, 3) -- (3, 0) -- (0.1, 0) -- (0.1, -0.5);
+
+        \draw[snake=coil, segment aspect=0, ultra thick, cyan!40!gray] (-3,2)  -- ++(6,0);
+
+        \draw[red!40!gray, ultra thick, -to] (0, 3.75) -- (0, 2.5)
+        node [midway, right, black] {$p_{be}$}; % \dot{V}_{be}
+        \draw[red!40!gray, ultra thick, -to] (0, -0.25) -- (0, -1.5)
+        node [midway, right, black] {$p_{ki}$}; % \dot{V}_{ki}
+      \end{tikzpicture}
+    \end{figure}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{.5\textwidth}
+    Ha a bejövő és a kiáramló anyagmennyiség megegyezik
+    ($\dot{V}_{e} \equiv \mathrm{const}$), akkor:
+    \[
+      x_{be} = \dot{V}_{e} \cdot p_1
+      \quad \quad \quad
+      x_{ki}(t) = \frac{\dot{V}_e}{V_0} \; x(t)
+    \]
+    \begin{gather*}
+      \dot{x}(t) = x_{be} - x_{ki}(t)
+      \\[2mm]
+      \frac{\differential x}{x_{be} - x_{ki}(t)} = \differential t
+      % \\[2mm]
+      % x(t) = x_{be} + c e^{-t}
+    \end{gather*}
+
+    Ha a bejövő és a kiáramló anyagmennyiség nem egyezik meg,
+    azaz $\dot{V}_{be} \neq \dot{V}_ki$, akkor:
+    \[
+      x_{be} = \dot{V}_{1} \cdot p_1
+      \quad \quad
+      x_{ki}(t) = \frac{\dot{V}_2}{V_0 + (V_1 - V_2)t} \; x(t)
+    \]
+  \end{minipage}
+\end{cbox}
+
+
+
+\end{document}
