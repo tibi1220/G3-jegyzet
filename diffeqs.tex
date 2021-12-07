@@ -4,6 +4,9 @@
 
 \subsection{Differenciálegyenletek összefoglaló}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{yellow!40!gray}{Diffegyenletek osztályozása}
   Alakjuk lehet:
   \begin{itemize}
@@ -30,7 +33,7 @@
   Ekkor az alábbi alakban felírhatóak:
   \[
     a_n(x) y^{(n)}
-    + a_{n-1}(x) y^{(n-1)} y^{(n-1)}
+    + a_{n-1}(x) y^{(n-1)}
     + \dots
     + a_1(x) y'
     + a_0(x) y
@@ -38,6 +41,9 @@
   \]
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{red!40!gray}{Szukcesszív approximáció}
   \[
     y_n := y(x_0) + \int_{x_0}^x f \left(
@@ -79,6 +85,9 @@
   \end{alignat*}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{cyan!40!gray}{Szöveges feladatok I}
   \emph{\underline{Newton lehűlési törvénye:}}
   $\quad \dot{x} = \alpha(x - x_k)$
@@ -111,12 +120,12 @@
     y'
           & = f(y/x)
     \quad &                  & \rightarrow \quad
-          &                  & u = y/x
+          &                  & u(x) = y/x
     \\
     y'
           & = f(ax + by + c)
     \quad &                  & \rightarrow \quad
-          &                  & u = ax + by + c
+          &                  & u(x) = ax + by + c
   \end{alignat*}
 
   \emph{\underline{Példa:}}$\quad (2x+1)y'-3y=0$
@@ -131,6 +140,9 @@
   \end{gather*}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{magenta!40!cyan}{Elsőrendű, lineáris diffegyenletek}
   \[
     y' + p(x) y = q(x)
@@ -150,6 +162,9 @@
   \end{itemize}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{red!60!green!80!gray}{Hiányos másodrendű egyenletek}
   Az $y'' = f(x; y; y')$ hiányos, ha $x$, $y$, vagy $y'$
   hiányzik az egyenletből.
@@ -177,6 +192,9 @@
   \end{enumerate}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{cyan!20!black}{Egzakt diffegyenletek}
   \[
     P(x;y) \, \differential x + Q(x;y) \, \differential y = 0
@@ -199,6 +217,9 @@
   \end{align*}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{yellow!80!black}{Bernoulli-féle diffegyenletek}
   \[
     y' + a(x)y = b(x)y^\alpha
@@ -224,10 +245,13 @@
   \end{itemize}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{red!40!gray}{Lineáris differenciálegyenletek}
   \[
     y^{(n)}
-    + a_{n-1}(x) y^{(n-1)} y^{(n-1)}
+    + a_{n-1}(x) y^{(n-1)}
     + \dots
     + a_1(x) y'
     + a_0(x) y
@@ -260,10 +284,13 @@
   lineáris kombinációjuk is megoldás lesz.
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{green!30!cyan}{Állandó együtthatós, homogén, lineáris differenciálegyenletek}
   \[
     y^{(n)}
-    + a_{n-1} y^{(n-1)} y^{(n-1)}
+    + a_{n-1} y^{(n-1)}
     + \dots
     + a_1 y'
     + a_0 y
@@ -329,9 +356,17 @@
   \end{itemize}
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{green!60!blue}{Állandó együtthatós, inhomogén, lineáris differenciálegyenletek}
   \[
-    y = y_\mathrm{h} + y_\mathrm{ih}
+    y^{(n)}
+    + a_{n-1} y^{(n-1)}
+    + \dots
+    + a_1 y'
+    + a_0 y
+    = f(x)
   \]
 
   \emph{\underline{Megoldási módszer:}} \quad
@@ -350,11 +385,17 @@
           \tabto{4.6cm} – \tabto{5.2cm}
           $y_\mathrm{ih} = A \cos (\beta x) + B \sin (\beta x)$
   \end{itemize}
+  \[
+    y = y_\mathrm{h} + y_\mathrm{ih}
+  \]
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{magenta!30!red}{Euler-féle diffegyenletek}
   \[
-    a_2 y'' + \frac{a_1}{x} y' + \frac{a_0}{x} y = 0
+    a_2 \, y'' + \frac{a_1}{x} \, y' + \frac{a_0}{x^2} \, y = 0
   \]
   \emph{\underline{Megoldási módszer:}}
   \quad $x = e^z$ helyettesítéssel
@@ -366,6 +407,9 @@
   \]
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{green!30!red}{Másodrendű, változó együtthatós diffegyenletek}
   \[
     a_2(x) y'' + a_1(x) y' + a_0(x) y = 0
@@ -377,6 +421,9 @@
   \]
 \end{cbox}
 
+
+
+% ------------------------------------------------------------------------------
 \begin{cbox}{cyan!40!gray}{Szöveges feladatok II}
   \emph{\underline{Általános keverési feladat:}}
 
@@ -384,9 +431,6 @@
     \begin{figure}[H]
       \centering
       \begin{tikzpicture}
-        \draw[very thick] (-3, 3) -- (-3, 0) -- (-0.1, 0) -- (-0.1, -0.5);
-        \draw[very thick] (3, 3) -- (3, 0) -- (0.1, 0) -- (0.1, -0.5);
-
         \filldraw[snake=coil, segment aspect=0, very thick, cyan!40!gray, fill=cyan!20] (-3, 2)
         -- ++(6, 0)
         [snake=none, black, fill=cyan!20]-- ++(0,-2)
@@ -398,14 +442,16 @@
         -- ++(0, 2)
         ;
         \draw[snake=coil, segment aspect=0, ultra thick, cyan!40!gray] (-3,2) -- ++(6,0);
-        \draw[cyan!40!gray!5!white, ultra thick] (0.2, -0.5) -- ++(-.4, 0);
 
+        \draw[very thick] (-3, 3) -- (-3, 0) -- (-0.1, 0) -- (-0.1, -0.5);
+        \draw[very thick] (3, 3) -- (3, 0) -- (0.1, 0) -- (0.1, -0.5);
+
+        \draw[cyan!40!gray!5!white, ultra thick] (0.2, -0.5) -- ++(-.4, 0);
 
         \draw[red!40!gray, ultra thick, -to] (0, 3.75) -- (0, 2.5)
         node [midway, black] {$p_{be} \;\;\; \dot{V}_{be}$}; % \dot{V}_{be}
         \draw[red!40!gray, ultra thick, -to] (0, -0.25) -- (0, -1.5)
         node [midway, black] {$p_{ki} \;\;\; \dot{V}_{ki}$}; % \dot{V}_{ki}
-
 
         \node[] at (0, 1) {$V_0$};
       \end{tikzpicture}
@@ -413,7 +459,7 @@
   \end{minipage}\hfill
   \begin{minipage}[c]{.5\textwidth}
     Ha a bejövő és a kiáramló anyagmennyiség megegyezik
-    ($\dot{V}_{e} \equiv \mathrm{const}$), akkor:
+    ($\dot{V}_{be} = \dot{V}_{ki} = \dot{V}_{e} \in \mathbb{R}$), akkor:
     \[
       x_{be} = \dot{V}_{e} \cdot p_{be}
       \quad \quad \quad
@@ -430,11 +476,9 @@
     Ha a bejövő és a kiáramló anyagmennyiség nem egyezik meg,
     azaz $\dot{V}_{be} \neq \dot{V}_{ki}$, ekkor:
     \[
-      x_{ki}(t) = \frac{\dot{V}_2}{V_0 + (\dot{V}_{be} - \dot{V}_{ki})t} \; x(t)
+      x_{ki}(t) = \frac{\dot{V}_{ki}}{V_0 + (\dot{V}_{be} - \dot{V}_{ki})t} \; x(t)
     \]
   \end{minipage}
 \end{cbox}
-
-
 
 \end{document}
