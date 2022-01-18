@@ -2,6 +2,62 @@
 
 \begin{document}
 
-Week 13 TBD
+\tetel{1}{.33}{Lokális létezés és unicitás tétele}
+
+Tegyük fel, hogy $y^{(n)} = f \left(
+  x; y; y'; y''; \dots; y^{(n-1)}
+  \right)$, $y^{(i)} = y_i \; i \in \left\{
+  0; 1; \dots; n-1
+  \right\}$, és $f: \mathbb{R}^{n} \rightarrow
+  \mathbb{R}$ teljesíti az alábbi feltételeket:
+\begin{itemize}
+  \item $\exists \left(
+          x_0; y_0; y_1; \dots; y_{n-1}
+          \right) \in D$, hogy $f$ folytonos
+        minden változójában $D$-n,
+
+  \item $\partial_x f ; \partial_y f;
+          \partial_{y'} f; \dots; \partial_{y^{(n-1)}}$
+        parciális deriváltak léteznek,
+        és folytonosak $D$-n.
+\end{itemize}
+
+Ekkor $\exists \, \varepsilon > 0$, hogy $!\exists \,
+  \varphi: (x_0 - \varepsilon; x_0 + \varepsilon)
+  \rightarrow \mathbb{R}$ függvény, ami kiegyenlíti
+a diffegyenletet, azaz $f \left(
+  x; \varphi(x); \varphi'(x); \dots; \varphi^{(n-1)}
+  \right) = \varphi^{(n)}(x) \quad \forall x \in
+  (x_0 - \varepsilon; x_0 + \varepsilon)$.
+
+\defi{1}{0}{$n$-edrendű, állandó együtthatós, lineáris diffegyenlet}
+\begin{equation*}
+  a_n y^{(n)}
+  + a_{n-1} y^{(n-1)}
+  + \dots
+  + a_1 y'
+  + a_0 y
+  = 0
+\end{equation*}
+Az alábbi diffegyenletet, ahol $a_1 \in \mathbb{R}
+  \quad i \in \left\{ 0; 1; \dots; n \right\} \quad
+  n$-edrendű, állandó együtthatós, homogén, lineáris
+diffegyenletnek nevezzük.
+\\[2mm]
+Ha van gerjesztőfüggvény, vagyis
+\begin{equation*}
+  a_n y^{(n)}
+  + a_{n-1} y^{(n-1)}
+  + \dots
+  + a_1 y'
+  + a_0 y
+  = g(x),
+\end{equation*}
+akkor az egyenlet inhomogén.
+\\[1em]
+Tegyük fel, hogy $\varphi_1$ és $\varphi_2$ is megoldása
+a homogén diffegyenletnek, ekkor $\alpha \varphi_1
+  + \beta \varphi_2$ is megoldás. Ekkor $\varphi_1$ és
+$\varphi_2$ vektorteret alkotnak.
 
 \end{document}

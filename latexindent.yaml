@@ -1,0 +1,69 @@
+defaultIndent: '  '
+lookForAlignDelims:
+  alignat*:
+    delimiterRegEx: '(\\(?:&+))'
+
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 0
+  textWrapOptions:
+    columns: 80
+  #   perCodeBlockBasis: 1
+  #   beforeFindingChildCodeBlocks: 1
+  #   mainDocument: 1
+  #   afterHeading: 1
+  #   items: 1
+  # removeParagraphLineBreaks:
+  #   mainDocument: 1
+  #   afterHeading: 1
+  #   items: 1
+  #   beforeTextWrap: 1
+  # items:
+  #   ItemStartsOnOwnLine: 1
+  # environments:
+  #   BeginStartsOnOwnLine: 1
+  #   BodyStartsOnOwnLine: 1
+  #   EndStartsOnOwnLine: 1
+  #   EndFinishesWithLineBreak: 0
+
+specialBeginEnd:
+  path:
+    begin: '\\path'
+    end: ';'
+    lookForThis: 1
+  draw:
+    begin: '\\draw'
+    end: ';'
+    lookForThis: 1
+  specialBeforeCommand: 1
+
+indentRules:
+  body: "  "
+
+lookForAlignDelims:
+  path: 
+    delimiterRegEx: '(edge|node)'
+  draw:
+    delimiterRegEx: '(edge|node)'
+
+noIndentBlock:
+  noindent1:
+    begin: '%.?\begin{noindent}'
+    body: '.*?'
+    end: '%.?\end{noindent}'
+    lookForThis: 1
+  noindent2:
+    begin: '%.?disable.?latexindent'
+    body: '.*?'
+    end: '%.?enable.?latexindent'
+    lookForThis: 1
+  noindent3:
+    begin: '%.?disable.?indent'
+    body: '.*?'
+    end: '%.?enable.?indent'
+    lookForThis: 1
+  noindent4:
+    begin: '%.?noindent'
+    body: '.*?'
+    end: '%.?indent'
+    lookForThis: 1
