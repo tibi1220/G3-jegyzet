@@ -27,9 +27,7 @@ jobs:
         id: compile_latex
         uses: xu-cheng/texlive-action/full@v1
         with:
-          run: |
-            tlmgr update mathalpha
-            latexmk  -file-line-error -halt-on-error -interaction=nonstopmode -recorder  -pdf "main.tex"
+          run: latexmk  -file-line-error -halt-on-error -interaction=nonstopmode -recorder  -pdf "main.tex"
 
       - name: Upload document to Release
         id: upload_latex
